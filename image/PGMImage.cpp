@@ -3,7 +3,6 @@
 //
 
 #include <fstream>
-#include <iostream>
 #include <sstream>
 #include "PGMImage.h"
 
@@ -33,16 +32,17 @@ namespace imgproc {
             throw std::runtime_error("invalid PGM header");
         }
 
-        data = new uint8_t *[height];
+        data = new GrayPixel *[height];
         for (int i = 0; i < height; ++i) {
-            data[i] = new uint8_t[width];
+            data[i] = new GrayPixel[width];
             for (int j = 0; j < width; ++j) {
+                if (!input.good()) throw std::runtime_error("Error whilst reading image data");
                 int d;
                 input >> d;
 
                 if (d < 0 || d > maxGrayValue) throw std::runtime_error("Invalid pixel data");
 
-                data[i][j] = static_cast<uint8_t>(d);
+                data[i][j] = GrayPixel(d);
             }
         }
     }

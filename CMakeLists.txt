@@ -11,4 +11,8 @@ add_executable(image_processor main.cpp image/Image.h
         image/PGMImage.h
         image/processors/AlphaBetaProcessing.cpp
         image/processors/AlphaBetaProcessing.h
+        image/PPMImage.cpp
+        image/PPMImage.h
+        image/pixel/pixel.cpp
+        image/pixel/pixel.h
 )

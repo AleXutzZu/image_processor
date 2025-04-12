@@ -8,10 +8,10 @@
 #include <cstdint>
 #include "Image.h"
 #include "processors/ImageProcessing.h"
-//TODO: change from uint8_t to some data type implemented OOP
+#include "pixel/pixel.h"
 
 namespace imgproc {
-    class PGMImage final : public Image<uint8_t> {
+    class PGMImage final : public Image<GrayPixel> {
     private:
         unsigned int maxGrayValue{};
     public:
