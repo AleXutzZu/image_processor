@@ -12,13 +12,29 @@ namespace imgproc {
 
     GrayPixel operator+(const GrayPixel &lhs, const GrayPixel &rhs) {
         int result = (int) (lhs.value) + (int) (rhs.value);
-        result = std::min(result, 255);
-        return GrayPixel(result);
+        return GrayPixel(GrayPixel::clip(result));
     }
 
     GrayPixel operator-(const GrayPixel &lhs, const GrayPixel &rhs) {
         int result = (int) (lhs.value) - (int) (rhs.value);
-        result = std::max(result, 0);
-        return GrayPixel(result);
+        return GrayPixel(GrayPixel::clip(result));
     }
+
+    GrayPixel operator+(const float scalar, const GrayPixel &vector) {
+        float result = vector.value + scalar;
+        return GrayPixel(GrayPixel::clip(result));
+    }
+
+    GrayPixel operator*(const float scalar, const GrayPixel &vector) {
+        float result = vector.value * scalar;
+        return GrayPixel(GrayPixel::clip(result));
+    }
+
+    uint8_t GrayPixel::clip(int value) {
+        if (value < 0) return 0;
+        if (value > 255) return 255;
+        return value;
+    }
+
+
 } // imgproc

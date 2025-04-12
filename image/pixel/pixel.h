@@ -14,23 +14,28 @@ namespace imgproc {
     private:
         uint8_t value;
 
+        static uint8_t clip(int value);
+
     public:
         GrayPixel();
 
         explicit GrayPixel(uint8_t value);
 
         inline friend GrayPixel operator+(const GrayPixel &lhs, const GrayPixel &rhs);
+
         inline friend GrayPixel operator-(const GrayPixel &lhs, const GrayPixel &rhs);
+
+        inline friend GrayPixel operator+(float scalar, const GrayPixel &vector);
+
+        inline friend GrayPixel operator*(float scalar, const GrayPixel &vector);
     };
 
     class RGBPixel {
     private:
-        uint8_t red, green, blue;
+        GrayPixel red, green, blue;
 
     public:
         RGBPixel();
-
-        RGBPixel(uint8_t red, uint8_t green, uint8_t blue);
 
         inline friend RGBPixel operator+(const RGBPixel &lhs, const RGBPixel &rhs);
     };
