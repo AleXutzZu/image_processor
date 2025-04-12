@@ -11,4 +11,8 @@ namespace imgproc {
         dst = src;
         dst = beta + (alpha * dst);
     }
+
+    void AlphaBetaProcessing::processImage(const PPMImage &src, PPMImage &dst) {
+
+    }
 } // imgproc
