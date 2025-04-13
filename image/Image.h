@@ -73,38 +73,6 @@ namespace imgproc {
             return at(p.getX(), p.getY());
         }
 
-        friend Image operator+(const Image<T> &lhs, const Image<T> &rhs) {
-            if (lhs.height != rhs.height || lhs.width != rhs.width)
-                throw std::runtime_error("Image sizes do not match");
-
-            Image<T> result(lhs);
-
-            for (int i = 0; i < result.height; ++i) {
-                for (int j = 0; j < result.width; ++j) {
-                    result.data[i][j] = result.data[i][j] + rhs.data[i][j];
-                }
-            }
-
-            return result;
-        }
-
-        friend Image operator-(const Image<T> &lhs, const Image<T> &rhs) {
-            if (lhs.height != rhs.height || lhs.width != rhs.width)
-                throw std::runtime_error("Image sizes do not match");
-            //TODO
-        }
-        //TODO operations * + - between a scalar and the image
-
-        friend Image operator*(float scalar, const Image<T> &vector) {
-            Image result = vector;
-
-            for (unsigned int i = 0; i < result.height; ++i) {
-                for (unsigned int j = 0; j < result.width; ++j) result.data[i][j] = scalar * result.data[i][j];
-            }
-
-            return result;
-        }
-
         [[nodiscard]] bool isEmpty() const {
             return data != nullptr;
         }
