@@ -7,6 +7,7 @@
 
 
 #include <cstdint>
+#include <ostream>
 
 namespace imgproc {
 
@@ -21,13 +22,17 @@ namespace imgproc {
 
         explicit GrayPixel(uint8_t value);
 
-        inline friend GrayPixel operator+(const GrayPixel &lhs, const GrayPixel &rhs);
+        friend GrayPixel operator+(const GrayPixel &lhs, const GrayPixel &rhs);
 
-        inline friend GrayPixel operator-(const GrayPixel &lhs, const GrayPixel &rhs);
+        friend GrayPixel operator-(const GrayPixel &lhs, const GrayPixel &rhs);
 
-        inline friend GrayPixel operator+(float scalar, const GrayPixel &vector);
+        friend GrayPixel operator+(float scalar, const GrayPixel &vector);
 
-        inline friend GrayPixel operator*(float scalar, const GrayPixel &vector);
+        friend GrayPixel operator*(float scalar, const GrayPixel &vector);
+
+        friend GrayPixel power(float scalar, const GrayPixel &vector);
+
+        friend std::ostream &operator<<(std::ostream &os, const GrayPixel &pixel);
     };
 
     class RGBPixel {

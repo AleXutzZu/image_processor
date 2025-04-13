@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include "pixel.h"
+#include <cmath>
 
 namespace imgproc {
     GrayPixel::GrayPixel() : value(0) {}
@@ -36,5 +37,15 @@ namespace imgproc {
         return value;
     }
 
+    GrayPixel power(float scalar, const GrayPixel &vector) {
+        int result = std::pow(vector.value, scalar);
+        return GrayPixel(GrayPixel::clip(result));
+    }
 
+    std::ostream &operator<<(std::ostream &os, const GrayPixel &pixel) {
+        return os << (int) pixel.value;
+    }
+
+
+    RGBPixel::RGBPixel() : red(), green(), blue() {}
 } // imgproc
