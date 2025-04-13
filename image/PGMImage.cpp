@@ -29,7 +29,7 @@ namespace imgproc {
         } while (true);
 
         if (width <= 0 || height <= 0 || maxGrayValue <= 0 || type != "P2") {
-            throw std::runtime_error("invalid PGM header");
+            throw std::runtime_error("Invalid PGM header");
         }
 
         data = new GrayPixel *[height];
@@ -48,7 +48,16 @@ namespace imgproc {
     }
 
     void PGMImage::save(const std::string &imagePath) {
+        std::ofstream output(imagePath);
+        if (!output.is_open()) throw std::runtime_error("Cannot open file " + imagePath);
 
+        output << "P2" << '\n';
+        output << width << " " << height << "\n";
+        output << maxGrayValue << '\n';
+        for (int i = 0; i < height; ++i) {
+            for (int j = 0; j < width; ++j) output << data[i][j] << " ";
+            output << '\n';
+        }
     }
 
     PGMImage::PGMImage(unsigned int width, unsigned int height) : Image(width, height) {}
