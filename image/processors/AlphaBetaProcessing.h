@@ -15,6 +15,8 @@ namespace imgproc {
         float alpha, beta;
 
     public:
+        AlphaBetaProcessing(float alpha, float beta);
+
         AlphaBetaProcessing();
 
         void processImage(const PGMImage &src, PGMImage &dst) override;
