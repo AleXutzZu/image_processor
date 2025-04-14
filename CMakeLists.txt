@@ -17,4 +17,8 @@ add_executable(image_processor main.cpp image/Image.h
         image/pixel/pixel.h
         image/processors/GammaProcessing.cpp
         image/processors/GammaProcessing.h
+        image/processors/ConvolutionProcessing.cpp
+        image/processors/ConvolutionProcessing.h
+        image/processors/Kernel.cpp
+        image/processors/Kernel.h
 )

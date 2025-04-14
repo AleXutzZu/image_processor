@@ -1,4 +1,6 @@
-#include <iostream>
+#include "image/PGMImage.h"
+#include "image/processors/AlphaBetaProcessing.h"
+#include "image/processors/GammaProcessing.h"
 
 int main() {
 
