@@ -12,6 +12,8 @@ namespace imgproc {
     class ImageProcessing {
     public:
         virtual void processImage(const T &src, T &dst) = 0;
+
+        virtual ~ImageProcessing() = default;
     };
 }
 #endif //IMAGE_PROCESSOR_IMAGEPROCESSING_H
