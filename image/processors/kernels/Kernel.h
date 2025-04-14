@@ -8,11 +8,20 @@
 namespace imgproc {
 
     class Kernel {
-    private:
+    protected:
         unsigned int width{};
         unsigned int height{};
 
-        unsigned int **data;
+        int **data{};
+
+        [[nodiscard]] bool _valid(int i, int j) const;
+
+    public:
+        Kernel(unsigned int width, unsigned int height);
+
+        virtual ~Kernel();
+
+        [[nodiscard]] const int &at(int i, int j) const;
     };
 
 } // imgproc
