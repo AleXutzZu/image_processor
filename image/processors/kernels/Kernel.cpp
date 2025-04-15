@@ -23,4 +23,12 @@ namespace imgproc {
     bool Kernel::_valid(int i, int j) const {
         return 0 <= i && i < height && 0 <= j && j < width;
     }
+
+    unsigned int Kernel::getWidth() const {
+        return width;
+    }
+
+    unsigned int Kernel::getHeight() const {
+        return height;
+    }
 } // imgproc

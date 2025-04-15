@@ -22,6 +22,10 @@ namespace imgproc {
         virtual ~Kernel();
 
         [[nodiscard]] const int &at(int i, int j) const;
+
+        [[nodiscard]] unsigned int getWidth() const;
+
+        [[nodiscard]] unsigned int getHeight() const;
     };
 
 } // imgproc
