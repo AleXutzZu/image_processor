@@ -6,7 +6,13 @@
 #include "Kernel.h"
 
 namespace imgproc {
-    Kernel::Kernel(unsigned int width, unsigned int height) : width(width), height(height) {}
+    Kernel::Kernel(unsigned int width, unsigned int height) : width(width), height(height) {
+        data = new int *[height];
+        for (int i = 0; i < 3; ++i) {
+            data[i] = new int[3];
+            for (int j = 0; j < 3; ++j) data[i][j] = 0;
+        }
+    }
 
     Kernel::~Kernel() {
         if (data != nullptr) {
