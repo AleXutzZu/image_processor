@@ -15,9 +15,8 @@ namespace imgproc {
     private:
         uint8_t value;
 
-        static uint8_t clip(int value);
-
     public:
+
         GrayPixel();
 
         explicit GrayPixel(uint8_t value);
@@ -33,6 +32,10 @@ namespace imgproc {
         friend GrayPixel power(float scalar, const GrayPixel &vector);
 
         friend std::ostream &operator<<(std::ostream &os, const GrayPixel &pixel);
+
+        [[nodiscard]] uint8_t getValue() const;
+
+        static uint8_t clip(int value);
     };
 
     class RGBPixel {

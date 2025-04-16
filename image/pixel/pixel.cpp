@@ -46,6 +46,10 @@ namespace imgproc {
         return os << (int) pixel.value;
     }
 
+    uint8_t GrayPixel::getValue() const {
+        return value;
+    }
+
 
     RGBPixel::RGBPixel() : red(), green(), blue() {}
 } // imgproc
