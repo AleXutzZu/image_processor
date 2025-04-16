@@ -9,7 +9,7 @@ namespace imgproc {
         data[1][1] = 1;
     }
 
-    GrayPixel IdentityKernel::scale(const GrayPixel &other) {
-        return other;
+    GrayPixel IdentityKernel::scale(int value) {
+        return GrayPixel(value);
     }
 } // imgproc

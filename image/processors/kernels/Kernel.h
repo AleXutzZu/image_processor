@@ -5,6 +5,8 @@
 #ifndef IMAGE_PROCESSOR_KERNEL_H
 #define IMAGE_PROCESSOR_KERNEL_H
 
+#include "../../pixel/pixel.h"
+
 namespace imgproc {
 
     class Kernel {
