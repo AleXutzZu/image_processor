@@ -16,7 +16,7 @@ namespace imgproc {
         unsigned int height{};
         T **data{};
 
-        bool _valid(int x, int y) {
+        [[nodiscard]] bool _valid(int x, int y) const {
             return 0 <= x && x < width && 0 <= y && y < height;
         }
 
@@ -64,6 +64,12 @@ namespace imgproc {
         virtual void save(const std::string &imagePath) = 0;
 
         T &at(unsigned int x, unsigned int y) {
+            if (!_valid(x, y)) throw std::out_of_range("Supplied coordinates are out of range");
+
+            return data[y][x];
+        }
+
+        const T &cat(unsigned int x, unsigned int y) const {
             if (!_valid(x, y)) throw std::out_of_range("Supplied coordinates are out of range");
 
             return data[y][x];
