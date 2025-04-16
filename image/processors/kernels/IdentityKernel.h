@@ -6,6 +6,7 @@
 #define IMAGE_PROCESSOR_IDENTITYKERNEL_H
 
 #include "Kernel.h"
+#include "../../pixel/pixel.h"
 
 namespace imgproc {
 
@@ -16,6 +17,8 @@ namespace imgproc {
         IdentityKernel(const IdentityKernel &other) = delete;
 
         IdentityKernel &operator=(const IdentityKernel &other) = delete;
+
+        static GrayPixel scale(const GrayPixel &other);
     };
 
 } // imgproc

@@ -8,4 +8,8 @@ namespace imgproc {
     IdentityKernel::IdentityKernel() : Kernel(3, 3) {
         data[1][1] = 1;
     }
+
+    GrayPixel IdentityKernel::scale(const GrayPixel &other) {
+        return other;
+    }
 } // imgproc
