@@ -25,4 +25,6 @@ add_executable(image_processor main.cpp image/Image.h
         image/processors/kernels/IdentityKernel.h
         image/processors/kernels/MeanBlurKernel.cpp
         image/processors/kernels/MeanBlurKernel.h
+        image/processors/kernels/GaussianBlurKernel.cpp
+        image/processors/kernels/GaussianBlurKernel.h
 )

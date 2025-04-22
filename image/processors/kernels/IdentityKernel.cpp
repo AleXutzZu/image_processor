@@ -7,7 +7,7 @@
 namespace imgproc {
     IdentityKernel::IdentityKernel() : Kernel(3, 3,
                                               [](int value) -> GrayPixel {
-                                                  return GrayPixel(GrayPixel::clip(value));
+                                                  return GrayPixel(value);
                                               }) {
         data[1][1] = 1;
     }
