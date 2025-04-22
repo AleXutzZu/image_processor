@@ -17,8 +17,6 @@ namespace imgproc {
         IdentityKernel(const IdentityKernel &other) = delete;
 
         IdentityKernel &operator=(const IdentityKernel &other) = delete;
-
-        static GrayPixel scale(int value);
     };
 
 } // imgproc

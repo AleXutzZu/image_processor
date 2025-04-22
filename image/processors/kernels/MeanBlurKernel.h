@@ -17,8 +17,6 @@ namespace imgproc {
         MeanBlurKernel(const MeanBlurKernel &other) = delete;
 
         MeanBlurKernel &operator=(const MeanBlurKernel &other) = delete;
-
-        static GrayPixel scale(int other);
     };
 
 } // imgproc

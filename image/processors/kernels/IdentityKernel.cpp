@@ -5,11 +5,10 @@
 #include "IdentityKernel.h"
 
 namespace imgproc {
-    IdentityKernel::IdentityKernel() : Kernel(3, 3) {
+    IdentityKernel::IdentityKernel() : Kernel(3, 3,
+                                              [](int value) -> GrayPixel {
+                                                  return GrayPixel(GrayPixel::clip(value));
+                                              }) {
         data[1][1] = 1;
-    }
-
-    GrayPixel IdentityKernel::scale(int value) {
-        return GrayPixel(value);
     }
 } // imgproc
