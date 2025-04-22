@@ -20,13 +20,9 @@ namespace imgproc {
         }
     }
 
-    ConvolutionProcessing::ConvolutionProcessing(const std::function<GrayPixel(int)> &scalingFunction,
-                                                 Kernel *kernel) :
-            scalingFunction(scalingFunction),
-            kernel(kernel) {}
+    ConvolutionProcessing::ConvolutionProcessing(Kernel *kernel) : kernel(kernel) {}
 
     ConvolutionProcessing::ConvolutionProcessing() : kernel() {
-        scalingFunction = IdentityKernel::scale;
         kernel = new IdentityKernel();
     }
 
@@ -52,7 +48,7 @@ namespace imgproc {
                 result += pixel.getValue() * kernel->at(i, j);
             }
         }
-        auto scaled = scalingFunction(result);
+        auto scaled = kernel->getScalingFunction()(result);
         return scaled;
     }
 } // imgproc

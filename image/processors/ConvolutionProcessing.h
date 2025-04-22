@@ -14,7 +14,6 @@ namespace imgproc {
 
     class ConvolutionProcessing : public PGMImageProcessor, public PPMImageProcessor {
     private:
-        std::function<GrayPixel(int)> scalingFunction;
         Kernel *kernel;
 
         GrayPixel applyKernel(int x, int y, const PGMImage &image);
@@ -24,7 +23,7 @@ namespace imgproc {
     public:
         ConvolutionProcessing();
 
-        ConvolutionProcessing(const std::function<GrayPixel(int)> &scalingFunction, Kernel *kernel);
+        explicit ConvolutionProcessing(Kernel *kernel);
 
         void processImage(const PPMImage &src, PPMImage &dst) override;
 
