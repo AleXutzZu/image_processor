@@ -27,4 +27,10 @@ add_executable(image_processor main.cpp image/Image.h
         image/processors/kernels/MeanBlurKernel.h
         image/processors/kernels/GaussianBlurKernel.cpp
         image/processors/kernels/GaussianBlurKernel.h
+        image/processors/kernels/SobelKernel.cpp
+        image/processors/kernels/SobelKernel.h
+        image/processors/kernels/VerticalSobelKernel.cpp
+        image/processors/kernels/VerticalSobelKernel.h
+        image/processors/kernels/HorizontalSobelKernel.cpp
+        image/processors/kernels/HorizontalSobelKernel.h
 )
