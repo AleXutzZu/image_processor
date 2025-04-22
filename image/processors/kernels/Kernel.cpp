@@ -6,7 +6,8 @@
 #include "Kernel.h"
 
 namespace imgproc {
-    Kernel::Kernel(unsigned int width, unsigned int height) : width(width), height(height) {
+    Kernel::Kernel(unsigned int width, unsigned int height, const std::function<GrayPixel(int)> &function) : width(
+            width), height(height), scalingFunction(function) {
         data = new int *[height];
         for (int i = 0; i < 3; ++i) {
             data[i] = new int[3];
@@ -36,5 +37,9 @@ namespace imgproc {
 
     unsigned int Kernel::getHeight() const {
         return height;
+    }
+
+    const std::function<GrayPixel(int)> &Kernel::getScalingFunction() const {
+        return scalingFunction;
     }
 } // imgproc
