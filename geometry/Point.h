@@ -5,6 +5,7 @@
 #ifndef IMAGE_PROCESSOR_POINT_H
 #define IMAGE_PROCESSOR_POINT_H
 
+#include <iostream>
 
 class Point {
 private:
@@ -12,11 +13,15 @@ private:
     unsigned int y{};
 
 public:
-    unsigned int getX() const;
+    [[nodiscard]] unsigned int getX() const;
 
-    unsigned int getY() const;
+    [[nodiscard]] unsigned int getY() const;
 
     Point(unsigned int x, unsigned int y);
+
+    friend std::ostream& operator<<(std::ostream &os, const Point &p);
+
+    friend std::istream &operator>>(std::istream &is, Point &p);
 };
 
 

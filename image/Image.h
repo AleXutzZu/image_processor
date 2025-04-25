@@ -6,7 +6,7 @@
 #define IMAGE_PROCESSOR_IMAGE_H
 
 #include <stdexcept>
-#include "../point/Point.h"
+#include "../geometry/Point.h"
 
 namespace imgproc {
     template<typename T>
