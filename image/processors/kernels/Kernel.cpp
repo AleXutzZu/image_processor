@@ -9,9 +9,9 @@ namespace imgproc {
     Kernel::Kernel(unsigned int width, unsigned int height, const std::function<GrayPixel(int)> &function) : width(
             width), height(height), scalingFunction(function) {
         data = new int *[height];
-        for (int i = 0; i < 3; ++i) {
-            data[i] = new int[3];
-            for (int j = 0; j < 3; ++j) data[i][j] = 0;
+        for (int i = 0; i < height; ++i) {
+            data[i] = new int[width];
+            for (int j = 0; j < width; ++j) data[i][j] = 0;
         }
     }
 
