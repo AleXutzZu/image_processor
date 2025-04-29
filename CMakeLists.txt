@@ -33,4 +33,6 @@ add_executable(image_processor main.cpp image/Image.h
         image/processors/kernels/VerticalSobelKernel.h
         image/processors/kernels/HorizontalSobelKernel.cpp
         image/processors/kernels/HorizontalSobelKernel.h
+        geometry/Rectangle.cpp
+        geometry/Rectangle.h
 )
