@@ -36,6 +36,10 @@ namespace imgproc {
 
         [[nodiscard]] unsigned int getWidth() const;
 
+        bool operator==(const Rectangle &rhs) const;
+
+        bool operator!=(const Rectangle &rhs) const;
+
         [[nodiscard]] unsigned int getHeight() const;
     };
 
