@@ -19,7 +19,7 @@ namespace imgproc {
         long long w = bottomRight.getX() - x;
         if (w < 0) throw std::runtime_error("Invalid points");
 
-        long long h = y - bottomRight.getY();
+        long long h = bottomRight.getY() - y;
         if (h < 0) throw std::runtime_error("Invalid points");
         width = w;
         height = h;
@@ -30,7 +30,7 @@ namespace imgproc {
         const Rectangle &rightMost = lhs.x < rhs.x ? rhs : lhs;
 
         Point corner1 = Point(leftMost.x, leftMost.y);
-        Point corner2 = Point(rightMost.x + rightMost.width, rightMost.y - rightMost.height);
+        Point corner2 = Point(rightMost.x + rightMost.width, rightMost.y + rightMost.height);
         return {corner1, corner2};
     }
 
