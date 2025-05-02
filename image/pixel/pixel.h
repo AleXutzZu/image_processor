@@ -40,7 +40,8 @@ namespace imgproc {
 
     class RGBPixel {
     private:
-        GrayPixel red, green, blue;
+        //0 - red; 1 - green; 2 - blue
+        GrayPixel pixels[3]{};
 
     public:
         RGBPixel();

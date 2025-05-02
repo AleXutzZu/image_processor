@@ -51,5 +51,5 @@ namespace imgproc {
     }
 
 
-    RGBPixel::RGBPixel() : red(), green(), blue() {}
+    RGBPixel::RGBPixel() = default;
 } // imgproc
