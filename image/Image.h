@@ -7,6 +7,7 @@
 
 #include <stdexcept>
 #include "../geometry/Point.h"
+#include "../geometry/Rectangle.h"
 
 namespace imgproc {
     template<typename T>
@@ -39,6 +40,20 @@ namespace imgproc {
                 for (unsigned int j = 0; j < width; ++j) {
                     data[i][j] = other.data[i][j];
                 }
+            }
+        }
+
+        void zeroes(int w, int h) {
+            release();
+            if (w == 0 || h == 0) {
+                width = height = 0;
+                return;
+            }
+            width = w;
+            height = h;
+            data = new T *[height];
+            for (int i = 0; i < height; ++i) {
+                data[i] = new T[width];
             }
         }
 
@@ -96,6 +111,23 @@ namespace imgproc {
                 _deep_copy(other);
             }
             return *this;
+        }
+
+        void getROI(Image<T> &roiImg, const Rectangle &roiRect) {
+            if (roiRect.getX() + roiRect.getWidth() > width || roiRect.getY() + roiRect.getHeight() > height) {
+                throw std::invalid_argument("Rectangle is not within the bounds of the image!");
+            }
+            roiImg.zeroes(roiRect.getWidth(), roiRect.getHeight());
+            for (int i = 0; i < roiRect.getWidth(); ++i) {
+                for (int j = 0; j < roiRect.getHeight(); ++j) {
+                    roiImg.at(i, j) = this->at(roiRect.getX() + i, roiRect.getY() + j);
+                }
+            }
+        }
+
+        void getROI(Image<T> &roiImg, unsigned int x, unsigned int y, unsigned int w, unsigned int h) {
+            Rectangle rectangle(x, y, w, h);
+            getROI(roiImg, rectangle);
         }
 
         void release() {
