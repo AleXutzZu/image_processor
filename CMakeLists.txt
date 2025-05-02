@@ -35,4 +35,7 @@ add_executable(image_processor main.cpp image/Image.h
         image/processors/kernels/HorizontalSobelKernel.h
         geometry/Rectangle.cpp
         geometry/Rectangle.h
+        geometry/drawing.h
 )
+
+add_subdirectory(tests)

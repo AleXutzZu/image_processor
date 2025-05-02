@@ -7,3 +7,4 @@
 out
 gen
 cmake-build-debug
+tests/lib
