@@ -16,10 +16,10 @@ namespace imgproc {
         x = topLeft.getX();
         y = topLeft.getY();
 
-        long long w = bottomRight.getX() - x;
+        long long w = (long long)(bottomRight.getX()) - x;
         if (w < 0) throw std::runtime_error("Invalid points");
 
-        long long h = bottomRight.getY() - y;
+        long long h = (long long)(bottomRight.getY()) - y;
         if (h < 0) throw std::runtime_error("Invalid points");
         width = w;
         height = h;
