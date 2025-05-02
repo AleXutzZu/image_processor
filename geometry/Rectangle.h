@@ -25,6 +25,18 @@ namespace imgproc {
         friend Rectangle operator|(const Rectangle &lhs, const Rectangle &rhs);
 
         friend Rectangle operator&(const Rectangle &lhs, const Rectangle &rhs);
+
+        friend std::istream &operator>>(std::istream &is, Rectangle &rectangle);
+
+        friend std::ostream &operator<<(std::ostream &os, const Rectangle &rectangle);
+
+        [[nodiscard]] unsigned int getX() const;
+
+        [[nodiscard]] unsigned int getY() const;
+
+        [[nodiscard]] unsigned int getWidth() const;
+
+        [[nodiscard]] unsigned int getHeight() const;
     };
 
 } // imgproc

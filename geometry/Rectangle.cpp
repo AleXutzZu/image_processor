@@ -45,4 +45,28 @@ namespace imgproc {
         if (inter_width <= 0 || inter_height <= 0) return {};
         return {inter_left, inter_top, (unsigned int) inter_width, (unsigned int) inter_height};
     }
+
+    std::istream &operator>>(std::istream &is, Rectangle &rectangle) {
+        return is >> rectangle.x >> rectangle.y >> rectangle.width >> rectangle.height;
+    }
+
+    std::ostream &operator<<(std::ostream &os, const Rectangle &rectangle) {
+        return os << rectangle.x << " " << rectangle.y << " " << rectangle.width << " " << rectangle.height;
+    }
+
+    unsigned int Rectangle::getX() const {
+        return x;
+    }
+
+    unsigned int Rectangle::getY() const {
+        return y;
+    }
+
+    unsigned int Rectangle::getWidth() const {
+        return width;
+    }
+
+    unsigned int Rectangle::getHeight() const {
+        return height;
+    }
 } // imgproc
