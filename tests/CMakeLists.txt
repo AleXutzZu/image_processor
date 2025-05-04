@@ -6,6 +6,7 @@ add_executable(Google_tests_run RectangleTest.cpp ../geometry/Rectangle.cpp ../g
         GrayPixelTest.cpp
         PGMImageTest.cpp
         ../image/PGMImage.cpp
-        PointTest.cpp)
+        PointTest.cpp
+        RGBPixelTest.cpp)
 
 target_link_libraries(Google_tests_run gtest gtest_main)
