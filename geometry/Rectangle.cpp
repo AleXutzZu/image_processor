@@ -3,6 +3,7 @@
 //
 
 #include "Rectangle.h"
+#include "Point.h"
 
 namespace imgproc {
     Rectangle::Rectangle(unsigned int x, unsigned int y, unsigned int width, unsigned int height) :

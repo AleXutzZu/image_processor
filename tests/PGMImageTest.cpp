@@ -214,7 +214,7 @@ TEST_F(PGMImageTest, PixelRetrievel) {
         for (int j = 0; j < image.getWidth(); ++j) {
             EXPECT_NO_THROW(image.at(j, i));
             EXPECT_NO_THROW(image.cat(j, i));
-            Point p(j, i);
+            imgproc::Point p(j, i);
             EXPECT_NO_THROW(image.at(p));
         }
     }
@@ -247,7 +247,7 @@ TEST_F(PGMImageTest, ROIRetrieval) {
 
     for (int i = 0; i < roiImg.getWidth(); ++i) {
         for (int j = 0; j < roiImg.getHeight(); ++j) {
-            EXPECT_EQ(roiImg.cat(i, j), image.at(rect.getCorner() + Point(i, j)));
+            EXPECT_EQ(roiImg.cat(i, j), image.at(rect.getCorner() + imgproc::Point(i, j)));
         }
     }
 }
@@ -306,7 +306,7 @@ TEST_F(PGMImageTest, ROIRetrieval_ValidRectangle_Edgecase) {
 
     for (int i = 0; i < roiImg.getWidth(); ++i) {
         for (int j = 0; j < roiImg.getHeight(); ++j) {
-            EXPECT_EQ(roiImg.cat(i, j), image.at(rect.getCorner() + Point(i, j)));
+            EXPECT_EQ(roiImg.cat(i, j), image.at(rect.getCorner() + imgproc::Point(i, j)));
         }
     }
 }

@@ -38,8 +38,8 @@ TEST_F(RectangleTest, ParameterizedConstructor) {
 
 // Test constructor from points
 TEST_F(RectangleTest, ConstructorFromPoints) {
-    Point topLeft(5, 10);
-    Point bottomRight(20, 30);
+    imgproc::Point topLeft(5, 10);
+    imgproc::Point bottomRight(20, 30);
     Rectangle r(topLeft, bottomRight);
     EXPECT_EQ(r.getX(), 5);
     EXPECT_EQ(r.getY(), 10);
@@ -48,22 +48,22 @@ TEST_F(RectangleTest, ConstructorFromPoints) {
 }
 
 TEST_F(RectangleTest, ConstructorFromPoints_InvalidX) {
-    Point topLeft(10, 10);
-    Point bottomRight(5, 20); // x decreases
+    imgproc::Point topLeft(10, 10);
+    imgproc::Point bottomRight(5, 20); // x decreases
 
     EXPECT_THROW(Rectangle r(topLeft, bottomRight), std::runtime_error);
 }
 
 TEST_F(RectangleTest, ConstructorFromPoints_InvalidY) {
-    Point topLeft(10, 20);
-    Point bottomRight(20, 10); // y decreases
+    imgproc::Point topLeft(10, 20);
+    imgproc::Point bottomRight(20, 10); // y decreases
 
     EXPECT_THROW(Rectangle r(topLeft, bottomRight), std::runtime_error);
 }
 
 TEST_F(RectangleTest, ConstructorFromPoints_InvalidXY) {
-    Point topLeft(20, 20);
-    Point bottomRight(10, 10); // both x and y decrease
+    imgproc::Point topLeft(20, 20);
+    imgproc::Point bottomRight(10, 10); // both x and y decrease
 
     EXPECT_THROW(Rectangle r(topLeft, bottomRight), std::runtime_error);
 }
