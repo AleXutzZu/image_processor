@@ -83,6 +83,10 @@ namespace imgproc {
          * @return the new clipped value
          */
         static uint8_t clip(int value);
+
+        friend bool operator==(const GrayPixel &lhs, const GrayPixel &rhs);
+
+        friend bool operator!=(const GrayPixel &lhs, const GrayPixel &rhs);
     };
 
     class RGBPixel {

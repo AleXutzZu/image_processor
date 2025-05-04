@@ -50,6 +50,14 @@ namespace imgproc {
         return value;
     }
 
+    bool operator==(const GrayPixel &lhs, const GrayPixel &rhs) {
+        return lhs.value == rhs.value;
+    }
+
+    bool operator!=(const GrayPixel &lhs, const GrayPixel &rhs) {
+        return !(rhs == lhs);
+    }
+
 
     RGBPixel::RGBPixel() = default;
 } // imgproc
