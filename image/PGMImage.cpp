@@ -32,7 +32,7 @@ namespace imgproc {
             throw std::runtime_error("Invalid PGM header");
         }
 
-        data = new GrayPixel *[height];
+        data = new GrayPixel *[height]();
         for (int i = 0; i < height; ++i) {
             data[i] = new GrayPixel[width];
             for (int j = 0; j < width; ++j) {

@@ -17,9 +17,9 @@ namespace imgproc {
     template<typename T>
     class Image {
     protected:
-        unsigned int width{};
-        unsigned int height{};
-        T **data{};
+        unsigned int width = 0;
+        unsigned int height = 0;
+        T **data = nullptr;
 
         [[nodiscard]] bool _valid(int x, int y) const;
 
@@ -153,6 +153,7 @@ namespace imgproc {
             for (int i = 0; i < height; ++i) delete[] data[i];
             delete[] data;
             width = height = 0;
+            data = nullptr;
         }
     }
 
@@ -217,15 +218,13 @@ namespace imgproc {
     template<typename T>
     void Image<T>::zeroes(int w, int h) {
         release();
-        if (w == 0 || h == 0) {
-            width = height = 0;
-            return;
-        }
+        if (w == 0 || h == 0) return;
+
         width = w;
         height = h;
-        data = new T *[height];
+        data = new T *[height]();
         for (int i = 0; i < height; ++i) {
-            data[i] = new T[width];
+            data[i] = new T[width]();
         }
     }
 
