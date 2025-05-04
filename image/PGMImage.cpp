@@ -11,7 +11,7 @@ namespace imgproc {
         std::ifstream input(imagePath);
         if (!input.is_open()) throw std::runtime_error("Cannot open file " + imagePath);
 
-        if (data != nullptr) release();
+        release();
 
         std::string line;
         std::string header;
