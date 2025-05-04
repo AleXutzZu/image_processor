@@ -60,4 +60,77 @@ namespace imgproc {
 
 
     RGBPixel::RGBPixel() = default;
+
+    bool operator==(const RGBPixel &lhs, const RGBPixel &rhs) {
+        for (int i = 0; i < 3; ++i) {
+            if (lhs.pixels[i] != rhs.pixels[i]) return false;
+        }
+        return true;
+    }
+
+    bool operator!=(const RGBPixel &lhs, const RGBPixel &rhs) {
+        return !(rhs == lhs);
+    }
+
+    RGBPixel::RGBPixel(uint8_t red, uint8_t green, uint8_t blue) {
+        pixels[0] = GrayPixel(red);
+        pixels[1] = GrayPixel(green);
+        pixels[2] = GrayPixel(blue);
+    }
+
+    RGBPixel operator+(const RGBPixel &lhs, const RGBPixel &rhs) {
+        GrayPixel values[3];
+        for (int i = 0; i < 3; ++i) {
+            values[i] = lhs.pixels[i] + rhs.pixels[i];
+        }
+        return {values[0].getValue(), values[1].getValue(), values[2].getValue()};
+    }
+
+    RGBPixel operator-(const RGBPixel &lhs, const RGBPixel &rhs) {
+        GrayPixel values[3];
+        for (int i = 0; i < 3; ++i) {
+            values[i] = lhs.pixels[i] - rhs.pixels[i];
+        }
+        return {values[0].getValue(), values[1].getValue(), values[2].getValue()};
+    }
+
+    RGBPixel operator+(float scalar, const RGBPixel &vector) {
+        GrayPixel values[3];
+        for (int i = 0; i < 3; ++i) {
+            values[i] = scalar + vector.pixels[i];
+        }
+        return {values[0].getValue(), values[1].getValue(), values[2].getValue()};
+    }
+
+    RGBPixel operator*(float scalar, const RGBPixel &vector) {
+        GrayPixel values[3];
+        for (int i = 0; i < 3; ++i) {
+            values[i] = scalar * vector.pixels[i];
+        }
+        return {values[0].getValue(), values[1].getValue(), values[2].getValue()};
+    }
+
+    RGBPixel power(float scalar, const RGBPixel &vector) {
+        GrayPixel values[3];
+        for (int i = 0; i < 3; ++i) {
+            values[i] = power(scalar, vector.pixels[i]);
+        }
+        return {values[0].getValue(), values[1].getValue(), values[2].getValue()};
+    }
+
+    std::ostream &operator<<(std::ostream &os, const RGBPixel &pixel) {
+        return os << pixel.pixels[0] << " " << pixel.pixels[1] << " " << pixel.pixels[2];
+    }
+
+    GrayPixel RGBPixel::getRed() const {
+        return pixels[0];
+    }
+
+    GrayPixel RGBPixel::getGreen() const {
+        return pixels[1];
+    }
+
+    GrayPixel RGBPixel::getBlue() const {
+        return pixels[2];
+    }
 } // imgproc

@@ -22,11 +22,13 @@ namespace imgproc {
          * Constructs a pixel with value 0
          */
         GrayPixel();
+
         /**
          * Constructs a pixel from the given value
          * @param value the value of the pixel
          */
         explicit GrayPixel(uint8_t value);
+
         /**
          * Adds two gray pixels together. The resulting value is clipped to be in the range [0, 255]
          * @param lhs the first pixel
@@ -95,9 +97,85 @@ namespace imgproc {
         GrayPixel pixels[3]{};
 
     public:
+        /**
+         * Creates a pixel with all RGB values set to 0
+         */
         RGBPixel();
 
-        inline friend RGBPixel operator+(const RGBPixel &lhs, const RGBPixel &rhs);
+        /**
+         * Creates a pixel with the given RGB values
+         * @param red the red value
+         * @param green the green value
+         * @param blue the blue value
+         */
+        RGBPixel(uint8_t red, uint8_t green, uint8_t blue);
+
+        /**
+         * Adds two RGB pixels together by adding each RGB value. Each result is clipped to be in the range [0, 255]
+         * @param lhs the first pixel
+         * @param rhs the second pixel
+         * @return an RGB pixel with the new values
+         */
+        friend RGBPixel operator+(const RGBPixel &lhs, const RGBPixel &rhs);
+
+        /**
+         * Subtracts the second RGB pixel from the first one for each RGB value. Each result is clipped to be in the range
+         * [0, 255]
+         * @param lhs the first pixel
+         * @param rhs the second pixel
+         * @return an RGB pixel with the new values
+         */
+        friend RGBPixel operator-(const RGBPixel &lhs, const RGBPixel &rhs);
+
+        /**
+         * Adds a scalar value to each component of the RGB pixel. Each result is truncated and clipped to be in the range [0, 255]
+         * @param scalar the scalar to add
+         * @param vector the pixel to add the scalar to
+         * @return an RGB pixel with the new values
+         */
+        friend RGBPixel operator+(float scalar, const RGBPixel &vector);
+
+        /**
+         * Multiplies each component of the RGB pixel by the scalar value. Each result is truncated and clipped to be in the range
+         * [0, 255]
+         * @param scalar the scalar to multiply by
+         * @param vector the pixel to be multiplied
+         * @return an RGB pixel with the new values
+         */
+        friend RGBPixel operator*(float scalar, const RGBPixel &vector);
+
+        /**
+         * Raises each component of the RGB pixel to the power of the scalar value. Each result is truncated and clipped
+         * to be in the range [0, 255]
+         * @param scalar the scalar exponent
+         * @param vector the RGB pixel
+         * @return an RGB pixel with the new values
+         */
+        friend RGBPixel power(float scalar, const RGBPixel &vector);
+
+        friend std::ostream& operator<<(std::ostream &os, const RGBPixel &pixel);
+
+        /**
+         * Returns the red component of the RGB pixel
+         * @return the red value as a GrayPixel
+         */
+        [[nodiscard]] GrayPixel getRed() const;
+
+        /**
+         * Returns the green component of the RGB pixel
+         * @return the green value as a GrayPixel
+         */
+        [[nodiscard]] GrayPixel getGreen() const;
+
+        /**
+         * Returns the blue component of the RGB pixel
+         * @return the blue value as a GrayPixel
+         */
+        [[nodiscard]] GrayPixel getBlue() const;
+
+        friend bool operator==(const RGBPixel &lhs, const RGBPixel &rhs);
+
+        friend bool operator!=(const RGBPixel &lhs, const RGBPixel &rhs);
     };
 
 } // imgproc
