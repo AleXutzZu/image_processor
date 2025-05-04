@@ -8,6 +8,7 @@
 namespace imgproc {
     Kernel::Kernel(unsigned int width, unsigned int height, const std::function<GrayPixel(int)> &function) : width(
             width), height(height), scalingFunction(function) {
+        if (width < 1 || height < 1) throw std::invalid_argument("Invalid width / height");
         data = new int *[height];
         for (int i = 0; i < height; ++i) {
             data[i] = new int[width];
@@ -18,12 +19,12 @@ namespace imgproc {
     Kernel::~Kernel() {
         if (data != nullptr) {
             for (int i = 0; i < height; ++i) delete[] data[i];
+            delete[] data;
         }
     }
 
     const int &Kernel::at(int i, int j) const {
-        if (!_valid(i, j)) throw std::runtime_error("Invalid indices");
-        if (data == nullptr) throw std::runtime_error("No data in kernel");
+        if (!_valid(i, j)) throw std::out_of_range("Invalid indices");
         return data[i][j];
     }
 

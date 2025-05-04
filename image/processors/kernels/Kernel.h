@@ -37,7 +37,7 @@ namespace imgproc {
          * @param i the row
          * @param j the column
          * @return the value at row i and column j in the matrix
-         * @throws runtime_error if the matrix is empty (as in a nullptr) or the coordinates are invalid
+         * @throws out_of_range if the coordinates are invalid
          */
         [[nodiscard]] const int &at(int i, int j) const;
 
