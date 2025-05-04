@@ -22,6 +22,8 @@ namespace imgproc {
 
         PGMImage(unsigned int width, unsigned int height);
 
+        PGMImage(const PGMImage &other);
+
         void load(const std::string &imagePath) override;
 
         void save(const std::string &imagePath) override;
@@ -41,6 +43,8 @@ namespace imgproc {
          * @return a new PGM image with the computed values for pixels
          */
         friend PGMImage operator*(float scalar, const PGMImage &vector);
+
+        PGMImage &operator=(const PGMImage &other);
     };
 
     /**

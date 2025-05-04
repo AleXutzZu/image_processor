@@ -74,5 +74,20 @@ namespace imgproc {
         return result;
     }
 
+    PGMImage &PGMImage::operator=(const PGMImage &other) {
+        if (this != &other) {
+            release();
+            width = other.width;
+            height = other.height;
+            maxGrayValue = other.maxGrayValue;
+            _deep_copy(other);
+        }
+        return *this;
+    }
+
+    PGMImage::PGMImage(const PGMImage &other)  : Image(other) {
+        maxGrayValue = other.maxGrayValue;
+    }
+
     PGMImage::PGMImage() = default;
 }
