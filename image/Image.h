@@ -44,6 +44,8 @@ namespace imgproc {
          */
         Image(unsigned int width, unsigned int height);
 
+        Image(const Image<T> &other);
+
         virtual ~Image();
 
         /**
@@ -89,7 +91,7 @@ namespace imgproc {
          * @return true if the image is empty, false otherwise
          */
         [[nodiscard]] bool isEmpty() const {
-            return data != nullptr;
+            return data == nullptr;
         }
 
         /**
@@ -136,6 +138,14 @@ namespace imgproc {
          */
         [[nodiscard]] unsigned int getHeight() const;
     };
+
+    template<typename T>
+    Image<T>::Image(const Image<T> &other) {
+        width = other.width;
+        height = other.height;
+
+        _deep_copy(other);
+    }
 
     template<typename T>
     unsigned int Image<T>::getHeight() const {
@@ -208,10 +218,14 @@ namespace imgproc {
 
     template<typename T>
     Image<T>::Image(unsigned int width, unsigned int height) : width(width), height(height) {
-        if (height > 0) data = new T *[height];
+        if (width < 1 || height < 1) {
+            this->width = this->height = 0;
+            return;
+        }
+        data = new T *[height];
 
         for (unsigned int i = 0; i < height; ++i) {
-            if (width > 0) data[i] = new T[width]();
+            data[i] = new T[width]();
         }
     }
 
@@ -230,6 +244,10 @@ namespace imgproc {
 
     template<typename T>
     void Image<T>::_deep_copy(const Image<T> &other) {
+        if (height < 1 || width < 1) {
+            width = height = 0;
+            return;
+        }
         data = new T *[height];
         for (unsigned int i = 0; i < height; ++i) {
             data[i] = new T[width];
