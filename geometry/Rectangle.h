@@ -22,6 +22,7 @@ namespace imgproc {
          * Constructs a rectangle with all values set to 0
          */
         Rectangle();
+
         /**
          * Constructs a rectangle given the top-left corner, a width and a height
          * @param x the x-coordinate for the top-left corner
@@ -30,6 +31,7 @@ namespace imgproc {
          * @param height the height of the rectangle
          */
         Rectangle(unsigned int x, unsigned int y, unsigned int width, unsigned int height);
+
         /**
          * Constructs a rectangle given the top-left and bottom-right corners
          * @param topLeft the top-left corner of the rectangle
@@ -58,16 +60,38 @@ namespace imgproc {
 
         friend std::ostream &operator<<(std::ostream &os, const Rectangle &rectangle);
 
+        /**
+         * Returns the top-left corner of the rectangle
+         * @return the top-left corner of the rectangle
+         */
+        [[nodiscard]] Point getCorner() const;
+
+        /**
+         * Returns the x-coordinate of the top-left corner
+         * @return the x-coordinate of the top-left corner
+         */
         [[nodiscard]] unsigned int getX() const;
 
+        /**
+         * Returns the y-coordinate of the top-left corner
+         * @return the y-coordinate of the top-left corner
+         */
         [[nodiscard]] unsigned int getY() const;
 
+        /**
+         * Returns the width of the rectangle
+         * @return the width of the rectangle
+         */
         [[nodiscard]] unsigned int getWidth() const;
 
         bool operator==(const Rectangle &rhs) const;
 
         bool operator!=(const Rectangle &rhs) const;
 
+        /**
+         * Returns the height of the rectangle
+         * @return the height of the rectangle
+         */
         [[nodiscard]] unsigned int getHeight() const;
     };
 

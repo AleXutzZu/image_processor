@@ -21,6 +21,8 @@ public:
 
     friend std::ostream& operator<<(std::ostream &os, const Point &p);
 
+    friend Point operator+(const Point &lhs, const Point &rhs);
+
     friend std::istream &operator>>(std::istream &is, Point &p);
 };
 

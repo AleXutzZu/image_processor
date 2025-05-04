@@ -83,4 +83,8 @@ namespace imgproc {
     bool Rectangle::operator!=(const Rectangle &rhs) const {
         return !(rhs == *this);
     }
+
+    Point Rectangle::getCorner() const {
+        return {x, y};
+    }
 } // imgproc

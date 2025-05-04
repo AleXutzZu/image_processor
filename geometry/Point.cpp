@@ -21,3 +21,7 @@ std::ostream &operator<<(std::ostream &os, const Point &p) {
 std::istream &operator>>(std::istream &is, Point &p) {
     return is >> p.x >> p.y;
 }
+
+Point operator+(const Point &lhs, const Point &rhs) {
+    return {lhs.x + rhs.x, lhs.y + rhs.y};
+}
