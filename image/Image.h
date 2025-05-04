@@ -44,8 +44,6 @@ namespace imgproc {
          */
         Image(unsigned int width, unsigned int height);
 
-        Image(const Image<T> &other);
-
         virtual ~Image();
 
         /**
@@ -101,8 +99,6 @@ namespace imgproc {
          * @throws out_of_range if the row is invalid
          */
         T *row(int y);
-
-        Image<T> &operator=(const Image<T> &other);
 
         /***
          * Get a rectangle of interest as an image
@@ -180,18 +176,6 @@ namespace imgproc {
     }
 
     template<typename T>
-    Image<T> &Image<T>::operator=(const Image<T> &other) {
-        if (this != &other) {
-            release();
-            height = other.height;
-            width = other.width;
-
-            _deep_copy(other);
-        }
-        return *this;
-    }
-
-    template<typename T>
     T *Image<T>::row(int y) {
         if (!_valid(0, y)) throw std::out_of_range("Supplied coordinate is out of range");
         return data[y];
@@ -219,14 +203,6 @@ namespace imgproc {
     template<typename T>
     Image<T>::~Image() {
         release();
-    }
-
-    template<typename T>
-    Image<T>::Image(const Image<T> &other) {
-        width = other.width;
-        height = other.height;
-
-        _deep_copy(other);
     }
 
     template<typename T>
