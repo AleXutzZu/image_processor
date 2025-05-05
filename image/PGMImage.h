@@ -9,6 +9,7 @@
 #include "Image.h"
 #include "processors/ImageProcessing.h"
 #include "pixel/pixel.h"
+#include "processors/kernels/Kernel.h"
 
 namespace imgproc {
     /**
@@ -17,6 +18,9 @@ namespace imgproc {
     class PGMImage final : public Image<GrayPixel> {
     private:
         unsigned int maxGrayValue{};
+
+        static void kernelConvolution(const Kernel &kernel, PGMImage &vector);
+
     public:
         PGMImage();
 
@@ -43,6 +47,14 @@ namespace imgproc {
          * @return a new PGM image with the computed values for pixels
          */
         friend PGMImage operator*(float scalar, const PGMImage &vector);
+
+        /**
+         * Applies a convolution kernel to the image
+         * @param kernel the kernel to apply
+         * @param vector the image
+         * @return a new PGM image with the computed values for pixels
+         */
+        friend PGMImage operator*(const Kernel &kernel, const PGMImage &vector);
 
         PGMImage &operator=(const PGMImage &other);
     };

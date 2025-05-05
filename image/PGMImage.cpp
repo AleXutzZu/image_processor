@@ -97,5 +97,43 @@ namespace imgproc {
         maxGrayValue = other.maxGrayValue;
     }
 
+    void PGMImage::kernelConvolution(const Kernel &kernel, PGMImage &vector) {
+        auto computeValueAtPixel = [&](int x, int y) -> GrayPixel {
+            int result = 0;
+
+            for (int i = 0; i < kernel.getHeight(); ++i) {
+                for (int j = 0; j < kernel.getWidth(); ++j) {
+                    int nx = x - j + kernel.getWidth() / 2;
+                    int ny = y - i + kernel.getHeight() / 2;
+
+                    nx = std::max(nx, 0);
+                    nx = std::min<int>(nx, vector.getWidth() - 1);
+
+                    ny = std::max(ny, 0);
+                    ny = std::min<int>(ny, vector.getHeight() - 1);
+
+                    auto pixel = vector.cat(nx, ny);
+                    result += pixel.getValue() * kernel.at(i, j);
+                }
+            }
+            auto scaled = kernel.getScalingFunction()(result);
+            return scaled;
+        };
+
+        for (int i = 0; i < vector.getHeight(); ++i) {
+            for (int j = 0; j < vector.getWidth(); ++j) {
+                auto newPixelValue = computeValueAtPixel(j, i);
+                vector.at(j, i) = newPixelValue;
+                vector.maxGrayValue = std::max(vector.maxGrayValue, (unsigned int) newPixelValue.getValue());
+            }
+        }
+    }
+
+    PGMImage operator*(const Kernel &kernel, const PGMImage &vector) {
+        PGMImage result = vector;
+        PGMImage::kernelConvolution(kernel, result);
+        return result;
+    }
+
     PGMImage::PGMImage() = default;
 }

@@ -16,10 +16,6 @@ namespace imgproc {
     private:
         Kernel *kernel;
 
-        GrayPixel applyKernel(int x, int y, const PGMImage &image);
-
-        RGBPixel applyKernel(int x, int y, PPMImage &image);
-
     public:
         ConvolutionProcessing();
 
