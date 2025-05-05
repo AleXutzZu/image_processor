@@ -3,7 +3,6 @@
 //
 #include "../image/PGMImage.h"
 #include "gtest/gtest.h"
-#include "../image/processors/kernels/Kernel.h"
 #include "../image/processors/kernels/IdentityKernel.h"
 #include "../image/processors/kernels/MeanBlurKernel.h"
 
