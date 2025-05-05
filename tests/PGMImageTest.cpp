@@ -97,6 +97,20 @@ TEST_F(PGMImageTest, ScalarAddOperator) {
     }
 }
 
+TEST_F(PGMImageTest, ScalarOperator_CorrectMaxValue) {
+    PGMImage image;
+    image.load(baseFolder + "update_maxVal.pgm");
+
+    const int SCALAR = 5;
+
+    PGMImage modified = SCALAR + image;
+
+    modified.save(testOutPutPath);
+
+    PGMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
+}
+
 TEST_F(PGMImageTest, ScalarMultiplyOperator) {
     PGMImage image;
     image.load(testImagePath);
