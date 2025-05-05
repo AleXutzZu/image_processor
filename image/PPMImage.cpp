@@ -71,12 +71,14 @@ namespace imgproc {
     PPMImage operator+(float scalar, const PPMImage &vector) {
         PPMImage result = vector;
         PPMImage::scalarAdd(scalar, result);
+        result.maxGrayValue = GrayPixel::clip(vector.maxGrayValue + scalar);
         return result;
     }
 
     PPMImage operator*(float scalar, const PPMImage &vector) {
         PPMImage result = vector;
         PPMImage::scalarMultiply(scalar, result);
+        result.maxGrayValue = GrayPixel::clip(vector.maxGrayValue * scalar);
         return result;
     }
 
