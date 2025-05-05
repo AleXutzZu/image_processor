@@ -8,12 +8,11 @@ namespace imgproc {
     AlphaBetaProcessing::AlphaBetaProcessing() : alpha(1), beta(0) {}
 
     void AlphaBetaProcessing::processImage(const PGMImage &src, PGMImage &dst) {
-        dst = src;
-        dst = beta + (alpha * dst);
+        dst = beta + (alpha * src);
     }
 
     void AlphaBetaProcessing::processImage(const PPMImage &src, PPMImage &dst) {
-        //TODO
+        dst = beta + (alpha * src);
     }
 
     AlphaBetaProcessing::AlphaBetaProcessing(float alpha, float beta) : alpha(alpha), beta(beta) {}
