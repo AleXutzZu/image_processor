@@ -12,6 +12,8 @@ add_executable(Google_tests_run RectangleTest.cpp ../geometry/Rectangle.cpp ../g
         ../image/processors/kernels/IdentityKernel.cpp
         ../image/processors/kernels/MeanBlurKernel.cpp
         PPMImageTest.cpp
-        ../image/PPMImage.cpp)
+        ../image/PPMImage.cpp
+        AlphaBetaProcessorTest.cpp
+        ../image/processors/AlphaBetaProcessing.cpp)
 
 target_link_libraries(Google_tests_run gtest gtest_main)
