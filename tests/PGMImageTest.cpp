@@ -3,6 +3,9 @@
 //
 #include "../image/PGMImage.h"
 #include "gtest/gtest.h"
+#include "../image/processors/kernels/Kernel.h"
+#include "../image/processors/kernels/IdentityKernel.h"
+#include "../image/processors/kernels/MeanBlurKernel.h"
 
 using imgproc::PGMImage;
 
@@ -128,6 +131,36 @@ TEST_F(PGMImageTest, ScalarMultiplyOperator) {
             EXPECT_EQ(modified.cat(j, i).getValue(), imgproc::GrayPixel::clip(image.cat(j, i).getValue() * SCALAR));
         }
     }
+}
+
+TEST_F(PGMImageTest, KernelConvolutionOperator) {
+    imgproc::IdentityKernel kernel;
+
+    PGMImage image;
+    image.load(testImagePath);
+    PGMImage modified = kernel * image;
+
+    EXPECT_EQ(modified.getHeight(), image.getHeight());
+    EXPECT_EQ(modified.getWidth(), image.getWidth());
+
+    for (int i = 0; i < image.getWidth(); ++i) {
+        for (int j = 0; j < image.getHeight(); ++j) {
+            EXPECT_EQ(image.cat(i, j), modified.cat(i, j));
+        }
+    }
+}
+
+TEST_F(PGMImageTest, KernelConvolutionOperator_MeanBlur) {
+    imgproc::MeanBlurKernel kernel;
+
+    PGMImage image;
+    image.load(testImagePath);
+    PGMImage modified = kernel * image;
+
+    EXPECT_EQ(modified.getHeight(), image.getHeight());
+    EXPECT_EQ(modified.getWidth(), image.getWidth());
+
+    EXPECT_NE(image.at(0, 0), modified.at(0, 0));
 }
 
 TEST_F(PGMImageTest, CopyConstructor) {

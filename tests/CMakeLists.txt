@@ -7,6 +7,9 @@ add_executable(Google_tests_run RectangleTest.cpp ../geometry/Rectangle.cpp ../g
         PGMImageTest.cpp
         ../image/PGMImage.cpp
         PointTest.cpp
-        RGBPixelTest.cpp)
+        RGBPixelTest.cpp
+        ../image/processors/kernels/Kernel.cpp
+        ../image/processors/kernels/IdentityKernel.cpp
+        ../image/processors/kernels/MeanBlurKernel.cpp)
 
 target_link_libraries(Google_tests_run gtest gtest_main)
