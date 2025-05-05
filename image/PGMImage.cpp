@@ -18,19 +18,25 @@ namespace imgproc {
 
         std::string type;
 
+        int width, height, maxGray;
+
         do {
             std::getline(input, line);
             if (!line.empty() && line[0] != '#') header += line + " ";
 
             std::stringstream stream(header);
-            stream >> type >> width >> height >> maxGrayValue;
+            stream >> type >> width >> height >> maxGray;
             if (!stream.eof()) break;
             if (!input.good()) break;
         } while (true);
 
-        if (width <= 0 || height <= 0 || maxGrayValue <= 0 || type != "P2") {
+        if (width <= 0 || height <= 0 || maxGray <= 0 || type != "P2") {
             throw std::runtime_error("Invalid PGM header");
         }
+
+        this->width = width;
+        this->height = height;
+        this->maxGrayValue = maxGray;
 
         data = new GrayPixel *[height]();
         for (int i = 0; i < height; ++i) {
@@ -40,7 +46,7 @@ namespace imgproc {
                 int d;
                 input >> d;
 
-                if (d < 0 || d > maxGrayValue) throw std::runtime_error("Invalid pixel data");
+                if (d < 0 || d > maxGray) throw std::runtime_error("Invalid pixel data");
 
                 data[i][j] = GrayPixel(d);
             }
@@ -85,7 +91,7 @@ namespace imgproc {
         return *this;
     }
 
-    PGMImage::PGMImage(const PGMImage &other)  : Image(other) {
+    PGMImage::PGMImage(const PGMImage &other) : Image(other) {
         maxGrayValue = other.maxGrayValue;
     }
 
