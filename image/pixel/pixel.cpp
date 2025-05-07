@@ -38,8 +38,13 @@ namespace imgproc {
     }
 
     GrayPixel power(float scalar, const GrayPixel &vector) {
-        int result = std::pow(vector.value, scalar);
-        return GrayPixel(GrayPixel::clip(result));
+        long double result = std::pow(vector.value, scalar);
+
+        if (result > 255) return GrayPixel(255);
+
+        auto casted = (uint8_t) result;
+
+        return GrayPixel(casted);
     }
 
     std::ostream &operator<<(std::ostream &os, const GrayPixel &pixel) {

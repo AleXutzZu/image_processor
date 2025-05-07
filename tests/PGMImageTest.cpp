@@ -132,6 +132,20 @@ TEST_F(PGMImageTest, ScalarMultiplyOperator) {
     }
 }
 
+TEST_F(PGMImageTest, ScalarMultiply_CorrectMaxValue) {
+    PGMImage image;
+    image.load(baseFolder + "update_maxVal.pgm");
+
+    const int SCALAR = 5;
+
+    PGMImage modified = SCALAR * image;
+
+    modified.save(testOutPutPath);
+
+    PGMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
+}
+
 TEST_F(PGMImageTest, KernelConvolutionOperator) {
     imgproc::IdentityKernel kernel;
 
@@ -162,6 +176,19 @@ TEST_F(PGMImageTest, KernelConvolutionOperator_MeanBlur) {
     EXPECT_NE(image.at(0, 0), modified.at(0, 0));
 }
 
+TEST_F(PGMImageTest, KernelConvolutionOperator_CorrectMaxValue) {
+    PGMImage image;
+    image.load(baseFolder + "update_maxVal.pgm");
+
+    imgproc::MeanBlurKernel kernel;
+    PGMImage modified = kernel * image;
+
+    modified.save(testOutPutPath);
+
+    PGMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
+}
+
 TEST_F(PGMImageTest, PowerOperator) {
     PGMImage image;
     image.load(testImagePath);
@@ -179,6 +206,20 @@ TEST_F(PGMImageTest, PowerOperator) {
             EXPECT_EQ(computed, p1);
         }
     }
+}
+
+TEST_F(PGMImageTest, PowerOperator_CorrectMaxValue) {
+    PGMImage image;
+    image.load(baseFolder + "update_maxVal.pgm");
+
+    const int SCALAR = 5;
+
+    PGMImage modified = SCALAR ^ image;
+
+    modified.save(testOutPutPath);
+
+    PGMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
 }
 
 TEST_F(PGMImageTest, CopyConstructor) {
