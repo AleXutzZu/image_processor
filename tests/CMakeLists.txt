@@ -14,6 +14,8 @@ add_executable(Google_tests_run RectangleTest.cpp ../geometry/Rectangle.cpp ../g
         PPMImageTest.cpp
         ../image/PPMImage.cpp
         AlphaBetaProcessorTest.cpp
-        ../image/processors/AlphaBetaProcessing.cpp)
+        ../image/processors/AlphaBetaProcessing.cpp
+        GammaProcessorTest.cpp
+        ../image/processors/GammaProcessing.cpp)
 
 target_link_libraries(Google_tests_run gtest gtest_main)
