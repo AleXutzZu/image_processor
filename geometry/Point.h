@@ -60,6 +60,10 @@ namespace imgproc {
          */
         friend Point operator-(const Point &lhs, const Point &rhs);
 
+        bool operator==(const Point &rhs) const;
+
+        bool operator!=(const Point &rhs) const;
+
         friend std::istream &operator>>(std::istream &is, Point &p);
     };
 }

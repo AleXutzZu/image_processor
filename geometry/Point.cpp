@@ -32,5 +32,14 @@ namespace imgproc {
     Point operator-(const Point &lhs, const Point &rhs) {
         return {lhs.x - rhs.x, lhs.y - rhs.y};
     }
+
+    bool Point::operator==(const Point &rhs) const {
+        return x == rhs.x &&
+               y == rhs.y;
+    }
+
+    bool Point::operator!=(const Point &rhs) const {
+        return !(rhs == *this);
+    }
 }
 
