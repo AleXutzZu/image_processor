@@ -162,6 +162,25 @@ TEST_F(PGMImageTest, KernelConvolutionOperator_MeanBlur) {
     EXPECT_NE(image.at(0, 0), modified.at(0, 0));
 }
 
+TEST_F(PGMImageTest, PowerOperator) {
+    PGMImage image;
+    image.load(testImagePath);
+    const float SCALAR = 2;
+    PGMImage modified = SCALAR ^ image;
+
+    EXPECT_EQ(modified.getHeight(), image.getHeight());
+    EXPECT_EQ(modified.getWidth(), image.getWidth());
+
+    for (int i = 0; i < modified.getHeight(); ++i) {
+        for (int j = 0; j < modified.getWidth(); ++j) {
+            auto p1 = modified.cat(j, i);
+
+            imgproc::GrayPixel computed = power(SCALAR, image.cat(j, i));
+            EXPECT_EQ(computed, p1);
+        }
+    }
+}
+
 TEST_F(PGMImageTest, CopyConstructor) {
     PGMImage image;
     image.load(testImagePath);

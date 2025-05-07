@@ -56,6 +56,14 @@ namespace imgproc {
          */
         friend PGMImage operator*(const Kernel &kernel, const PGMImage &vector);
 
+        /**
+         * Raises all pixels to the power of the scalar value
+         * @param scalar the scalar exponent
+         * @param vector the image
+         * @return a new PGM image with the computed values for pixels
+         */
+        friend PGMImage operator^(float scalar, const PGMImage &vector);
+
         PGMImage &operator=(const PGMImage &other);
     };
 

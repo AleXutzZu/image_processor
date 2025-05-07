@@ -135,5 +135,12 @@ namespace imgproc {
         return result;
     }
 
+    PGMImage operator^(float scalar, const PGMImage &vector) {
+        PGMImage result = vector;
+        PGMImage::scalarPower(scalar, result);
+        result.maxGrayValue = power(scalar, GrayPixel(result.maxGrayValue)).getValue();
+        return result;
+    }
+
     PGMImage::PGMImage() = default;
 }
