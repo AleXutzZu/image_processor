@@ -9,19 +9,11 @@ namespace imgproc {
     GammaProcessing::GammaProcessing(float gamma) : gamma(gamma) {}
 
     void GammaProcessing::processImage(const PGMImage &src, PGMImage &dst) {
-        dst = src;
-
-        for (int i = 0; i < dst.getHeight(); ++i) {
-            for (int j = 0; j < dst.getWidth(); ++j) {
-                auto &pixel = dst.at(j, i);
-                pixel = power(gamma, pixel);
-            }
-        }
+        dst = gamma ^ src;
     }
 
     void GammaProcessing::processImage(const PPMImage &src, PPMImage &dst) {
-        dst = src;
-        //TODO
+        dst = gamma ^ src;
     }
 
     GammaProcessing::GammaProcessing() : gamma(1) {}
