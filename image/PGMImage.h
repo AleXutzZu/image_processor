@@ -22,8 +22,16 @@ namespace imgproc {
         static void kernelConvolution(const Kernel &kernel, PGMImage &vector);
 
     public:
+        /**
+         * Constructs a completely empty PGM image with no width, height or pixel data
+         */
         PGMImage();
 
+        /**
+         * Constructs a completely black PGM image with the given width and height
+         * @param width the width of the image
+         * @param height the height of the image
+         */
         PGMImage(unsigned int width, unsigned int height);
 
         PGMImage(const PGMImage &other);
