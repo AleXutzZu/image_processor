@@ -27,6 +27,8 @@ namespace imgproc {
 
         static void scalarMultiply(float scalar, Image<T> &vector);
 
+        static void scalarPower(float scalar, Image<T> &vector);
+
         void _deep_copy(const Image<T> &other);
 
         void zeroes(int w, int h);
@@ -138,6 +140,15 @@ namespace imgproc {
          */
         [[nodiscard]] unsigned int getHeight() const;
     };
+
+    template<typename T>
+    void Image<T>::scalarPower(float scalar, Image<T> &vector) {
+        for (int i = 0; i < vector.height; ++i) {
+            for (int j = 0; j < vector.width; ++j) {
+                vector.data[i][j] = power(scalar, vector.data[i][j]);
+            }
+        }
+    }
 
     template<typename T>
     Image<T>::Image(const Image<T> &other) {
