@@ -37,6 +37,8 @@ namespace imgproc {
 
         friend PPMImage operator*(const Kernel &kernel, const PPMImage &vector);
 
+        friend PPMImage operator^(float scalar, const PPMImage &vector);
+
         PPMImage &operator=(const PPMImage &other);
     };
 
