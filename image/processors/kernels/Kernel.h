@@ -30,6 +30,10 @@ namespace imgproc {
          */
         Kernel(unsigned int width, unsigned int height, const std::function<GrayPixel(int)> &function);
 
+        Kernel(const Kernel &other) = delete;
+
+        Kernel *operator=(const Kernel &other) = delete;
+
         virtual ~Kernel();
 
         /**

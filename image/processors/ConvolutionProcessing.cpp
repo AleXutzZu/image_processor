@@ -7,12 +7,11 @@
 
 namespace imgproc {
     void ConvolutionProcessing::processImage(const PPMImage &src, PPMImage &dst) {
-
+        dst = (*this->kernel) * src;
     }
 
     void ConvolutionProcessing::processImage(const PGMImage &src, PGMImage &dst) {
-        dst = src;
-        dst = (*this->kernel) * dst;
+        dst = (*this->kernel) * src;
     }
 
     ConvolutionProcessing::ConvolutionProcessing(Kernel *kernel) : kernel(kernel) {}

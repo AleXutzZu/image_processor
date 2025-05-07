@@ -131,17 +131,19 @@ namespace imgproc {
             auto scaled = kernel.getScalingFunction()(result);
             return scaled;
         };
+        PPMImage result = vector;
 
         for (int i = 0; i < vector.getHeight(); ++i) {
             for (int j = 0; j < vector.getWidth(); ++j) {
                 GrayPixel pixels[3];
                 for (int sample = 0; sample < 3; ++sample) {
                     pixels[sample] = computeValueAtPixel(j, i, sample);
-                    vector.maxGrayValue = std::max(vector.maxGrayValue, (unsigned int) pixels[sample].getValue());
+                    result.maxGrayValue = std::max(result.maxGrayValue, (unsigned int) pixels[sample].getValue());
                 }
-                vector.at(j, i) = RGBPixel(pixels[0].getValue(), pixels[1].getValue(), pixels[2].getValue());
+                result.at(j, i) = RGBPixel(pixels[0].getValue(), pixels[1].getValue(), pixels[2].getValue());
             }
         }
+        vector = result;
     }
 
     PPMImage operator*(const Kernel &kernel, const PPMImage &vector) {

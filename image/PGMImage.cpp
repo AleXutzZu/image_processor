@@ -98,6 +98,8 @@ namespace imgproc {
     }
 
     void PGMImage::kernelConvolution(const Kernel &kernel, PGMImage &vector) {
+        PGMImage result = vector;
+
         auto computeValueAtPixel = [&](int x, int y) -> GrayPixel {
             int result = 0;
 
@@ -123,10 +125,11 @@ namespace imgproc {
         for (int i = 0; i < vector.getHeight(); ++i) {
             for (int j = 0; j < vector.getWidth(); ++j) {
                 auto newPixelValue = computeValueAtPixel(j, i);
-                vector.at(j, i) = newPixelValue;
-                vector.maxGrayValue = std::max(vector.maxGrayValue, (unsigned int) newPixelValue.getValue());
+                result.at(j, i) = newPixelValue;
+                result.maxGrayValue = std::max(result.maxGrayValue, (unsigned int) newPixelValue.getValue());
             }
         }
+        vector = result;
     }
 
     PGMImage operator*(const Kernel &kernel, const PGMImage &vector) {
