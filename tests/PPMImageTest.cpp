@@ -134,6 +134,20 @@ TEST_F(PPMImageTest, ScalarMultiplyOperator) {
     }
 }
 
+TEST_F(PPMImageTest, ScalarMultiply_CorrectMaxValue) {
+    PPMImage image;
+    image.load(testImagePath);
+
+    const int SCALAR = 5;
+
+    PPMImage modified = SCALAR * image;
+
+    modified.save(testOutPutPath);
+
+    PPMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
+}
+
 TEST_F(PPMImageTest, KernelConvolutionOperator) {
     imgproc::IdentityKernel kernel;
 
@@ -162,6 +176,52 @@ TEST_F(PPMImageTest, KernelConvolutionOperator_MeanBlur) {
     EXPECT_EQ(modified.getWidth(), image.getWidth());
 
     EXPECT_NE(image.at(0, 0), modified.at(0, 0));
+}
+
+TEST_F(PPMImageTest, KernelConvolutionOperator_CorrectMaxValue) {
+    PPMImage image;
+    image.load(testImagePath);
+
+    imgproc::MeanBlurKernel kernel;
+    PPMImage modified = kernel * image;
+
+    modified.save(testOutPutPath);
+
+    PPMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
+}
+
+TEST_F(PPMImageTest, PowerOperator) {
+    PPMImage image;
+    image.load(testImagePath);
+    const float SCALAR = 2;
+    PPMImage modified = SCALAR ^ image;
+
+    EXPECT_EQ(modified.getHeight(), image.getHeight());
+    EXPECT_EQ(modified.getWidth(), image.getWidth());
+
+    for (int i = 0; i < modified.getHeight(); ++i) {
+        for (int j = 0; j < modified.getWidth(); ++j) {
+            auto p1 = modified.cat(j, i);
+
+            imgproc::RGBPixel computed = power(SCALAR, image.cat(j, i));
+            EXPECT_EQ(computed, p1);
+        }
+    }
+}
+
+TEST_F(PPMImageTest, PowerOperator_CorrectMaxValue) {
+    PPMImage image;
+    image.load(testImagePath);
+
+    const int SCALAR = 5;
+
+    PPMImage modified = SCALAR ^ image;
+
+    modified.save(testOutPutPath);
+
+    PPMImage reload;
+    EXPECT_NO_THROW(reload.load(testOutPutPath));
 }
 
 TEST_F(PPMImageTest, CopyConstructor) {
