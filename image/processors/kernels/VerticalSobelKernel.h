@@ -9,6 +9,9 @@
 
 namespace imgproc {
 
+    /**
+     * Kernel used for detecting vertical edges.
+     */
     class VerticalSobelKernel : public SobelKernel {
     public:
         VerticalSobelKernel();

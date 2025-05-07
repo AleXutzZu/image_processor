@@ -9,7 +9,9 @@
 #include "../../pixel/pixel.h"
 
 namespace imgproc {
-
+    /**
+     * Kernel which applies a blur effect. All pixel weights are 1. The scaling function divides the resulted value by 9.
+     */
     class MeanBlurKernel final : public Kernel {
     public:
         MeanBlurKernel();

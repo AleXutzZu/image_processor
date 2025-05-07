@@ -9,6 +9,9 @@
 
 namespace imgproc {
 
+    /**
+     * Base class for the sobel kernels. The scaling function maps values from the range [-1020, 1020] into [0, 255].
+     */
     class SobelKernel : public Kernel {
     public:
         SobelKernel();

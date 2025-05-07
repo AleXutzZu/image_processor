@@ -9,6 +9,9 @@
 
 namespace imgproc {
 
+    /**
+     * Kernel used for detecting horizontal edges.
+     */
     class HorizontalSobelKernel : public SobelKernel {
     public:
         HorizontalSobelKernel();
