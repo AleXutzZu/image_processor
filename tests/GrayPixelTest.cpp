@@ -2,7 +2,7 @@
 // Created by AleXutzZu on 03/05/2025.
 //
 #include <gtest/gtest.h>
-#include "../image/pixel/pixel.h"  // Adjust path as needed
+#include "image/pixel/pixel.h"  // Adjust path as needed
 
 using imgproc::GrayPixel;
 

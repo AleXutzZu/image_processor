@@ -3,7 +3,7 @@
 //
 #include "gtest/gtest.h"
 #include <sstream>
-#include "../image/pixel/pixel.h"
+#include "image/pixel/pixel.h"
 
 using imgproc::RGBPixel;
 

@@ -2,10 +2,10 @@
 // Created by AleXutzZu on 05/05/2025.
 //
 
-#include "../image/PPMImage.h"
 #include "gtest/gtest.h"
-#include "../image/processors/kernels/IdentityKernel.h"
-#include "../image/processors/kernels/MeanBlurKernel.h"
+#include "image/PPMImage.h"
+#include "image/processors/kernels/IdentityKernel.h"
+#include "image/processors/kernels/MeanBlurKernel.h"
 
 using imgproc::PPMImage;
 

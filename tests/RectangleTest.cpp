@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "../geometry/Rectangle.h"
+#include "geometry/Rectangle.h"
 
 using imgproc::Rectangle;
 

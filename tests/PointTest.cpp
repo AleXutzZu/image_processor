@@ -3,7 +3,7 @@
 //
 #include "gtest/gtest.h"
 #include <sstream>
-#include "../geometry/Point.h"
+#include "geometry/Point.h"
 
 using imgproc::Point;
 

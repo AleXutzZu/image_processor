@@ -3,12 +3,12 @@
 //
 
 #include "gtest/gtest.h"
-#include "../image/processors/kernels/IdentityKernel.h"
-#include "../image/processors/kernels/MeanBlurKernel.h"
-#include "../image/processors/kernels/VerticalSobelKernel.h"
-#include "../image/processors/kernels/HorizontalSobelKernel.h"
-#include "../image/processors/kernels/GaussianBlurKernel.h"
-#include "../image/processors/ConvolutionProcessing.h"
+#include "image/processors/kernels/IdentityKernel.h"
+#include "image/processors/kernels/MeanBlurKernel.h"
+#include "image/processors/kernels/VerticalSobelKernel.h"
+#include "image/processors/kernels/HorizontalSobelKernel.h"
+#include "image/processors/kernels/GaussianBlurKernel.h"
+#include "image/processors/ConvolutionProcessing.h"
 
 using imgproc::ConvolutionProcessing;
 using imgproc::PPMImage;

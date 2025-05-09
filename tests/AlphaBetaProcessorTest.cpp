@@ -2,7 +2,7 @@
 // Created by AleXutzZu on 05/05/2025.
 //
 #include "gtest/gtest.h"
-#include "../image/processors/AlphaBetaProcessing.h"
+#include "image/processors/AlphaBetaProcessing.h"
 
 using imgproc::AlphaBetaProcessing;
 using imgproc::PPMImage;

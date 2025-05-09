@@ -1,10 +1,10 @@
 //
 // Created by AleXutzZu on 04/05/2025.
 //
-#include "../image/PGMImage.h"
+#include "image/PGMImage.h"
 #include "gtest/gtest.h"
-#include "../image/processors/kernels/IdentityKernel.h"
-#include "../image/processors/kernels/MeanBlurKernel.h"
+#include "image/processors/kernels/IdentityKernel.h"
+#include "image/processors/kernels/MeanBlurKernel.h"
 
 using imgproc::PGMImage;
 

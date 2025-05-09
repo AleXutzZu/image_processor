@@ -3,7 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "../image/processors/GammaProcessing.h"
+#include "image/processors/GammaProcessing.h"
 
 using imgproc::GammaProcessing;
 using imgproc::PPMImage;

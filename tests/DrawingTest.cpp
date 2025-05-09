@@ -3,9 +3,9 @@
 //
 
 #include "gtest/gtest.h"
-#include "../geometry/drawing.h"
-#include "../image/PGMImage.h"
-#include "../image/PPMImage.h"
+#include "geometry/drawing.h"
+#include "image/PGMImage.h"
+#include "image/PPMImage.h"
 #include <algorithm>
 
 using imgproc::PGMImage;
