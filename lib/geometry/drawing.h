@@ -29,7 +29,7 @@ namespace imgproc::draw {
 
         auto plot = [&](int px, int py) {
             if (px >= 0 && py >= 0 && py < image.getHeight() && px < image.getWidth()) {
-                image.at(py, px) = color;
+                image.at(px, py) = color;
             }
         };
 
