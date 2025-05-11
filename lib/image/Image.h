@@ -9,6 +9,9 @@
 #include "../geometry/Point.h"
 #include "../geometry/Rectangle.h"
 
+/**
+ * Core image processing components
+ */
 namespace imgproc {
     /**
      * Base class for representing an image.

@@ -8,6 +8,9 @@
 #include "../image/Image.h"
 #include "Point.h"
 
+/**
+ * Drawing and shape-rendering utilities
+ */
 namespace imgproc::draw {
 
     /**
