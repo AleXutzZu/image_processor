@@ -8,9 +8,9 @@ find_package(Boost 1.88.0 COMPONENTS program_options)
 include_directories(lib)
 
 if (Boost_FOUND)
-    add_executable(image_processor main.cpp)
-    target_include_directories(image_processor PUBLIC ${Boost_INCLUDE_DIRS})
-    target_link_libraries(image_processor PUBLIC ${Boost_LIBRARIES} image_processor_lib)
+    add_executable(pgm_editor pgm_editor.cpp)
+    target_include_directories(pgm_editor PUBLIC ${Boost_INCLUDE_DIRS})
+    target_link_libraries(pgm_editor PUBLIC ${Boost_LIBRARIES} image_processor_lib)
 endif ()
 
 add_subdirectory(lib)

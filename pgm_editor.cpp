@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 
         // Help message
         if (vm.count("help")) {
-            std::cout << "Usage: myapp [options] file_path\n";
+            std::cout << "Usage: pgm_editor [options] file_path\n";
             std::cout << desc << "\n";
             return 0;
         }
