@@ -1,0 +1,60 @@
+/**
+ * @mainpage Image Processor Library
+ *
+ * @section intro_sec Introduction
+ *
+ * This project is a modular and extensible image processing library implemented in C++. It supports basic image representations,
+ * pixel manipulation, a variety of image processing filters (e.g. gamma correction, alpha-beta transformation, convolution),
+ * and drawing operations (e.g. lines, circles, rectangles) on grayscale (PGM) and color (PPM) images.
+ *
+ * @section namespace_organization Namespace Organization
+ *
+ * - The main namespace is [imgproc](@ref imgproc), which contains all core image processing classes, including pixel types, geometry, and base image functionality.
+ * - Drawing utilities and shape rendering functions are grouped under the sub-namespace [imgproc::draw](@ref imgproc::draw).
+ *
+ * @section core_classes Core Classes
+ * - `imgproc::GrayPixel`: Represents a grayscale pixel with an intensity value from 0 to 255.
+ * - `imgproc::RGBPixel`: Represents a color pixel composed of red, green, and blue components, each in the range [0, 255].
+ * - `imgproc::Point`: Represents a 2D point with unsigned integer `x` and `y` coordinates.
+ * - `imgproc::Rectangle`: Represents a rectangle defined by its top-left corner and its width and height.
+ * - `imgproc::Image<T>`: A generic image class templated on pixel type. Supports operations like `at(x, y)` for pixel access and dimension queries.
+ * - `imgproc::PGMImage`: A concrete image class that inherits from `Image<GrayPixel>` and supports loading/saving PGM images.
+ * - `imgproc::PPMImage`: A concrete image class that inherits from `Image<RGBPixel>` and supports loading/saving PPM images.
+ *
+ * @section filters Image Processing
+ * The library includes image processing filters such as:
+ * - **Alpha-Beta Processing**: Applies a linear transformation to image intensity: `pixel = alpha * pixel + beta`.
+ * - **Gamma Correction**: Applies gamma transformation: `pixel = pixel ^ gamma`.
+ * - **Convolution Kernels**: Generic convolution support including mean blur, Gaussian blur, and Sobel operators.
+ *
+ * @section draw Drawing Utilities
+ * The `imgproc::draw` namespace provides utilities to draw geometric primitives on images:
+ * - `drawLine(...)`: Draws a line between two points using Bresenham's algorithm.
+ * - `drawCircle(...)`: Draws a circle using the Midpoint Circle algorithm.
+ * - `drawRectangle(...)`: Draws a filled rectangle with input validation.
+ *
+ * All drawing operations include boundary checks and operate directly on the image data.
+ *
+ * @section testing Testing
+ * The project includes a thorough suite of unit tests using Google Test:
+ * - Validation for image loading, saving, and transformation.
+ * - Convolution kernel tests with known reference images.
+ * - Accuracy checks for drawing primitives and geometric operations.
+ *
+ * @section apps Other executables
+ * This project also provides some sample programs which may be used to alter images with the use of this library.
+ * You can consult the GitHub repository for more details on these programs.
+ *
+ * @section usage Example
+ * ```cpp
+ * imgproc::PGMImage pgm(10, 10);
+ * imgproc::Rectangle rect(2, 2, 5, 5);
+ * imgproc::draw::drawRectangle(pgm, rect, imgproc::GrayPixel(200));
+ * ```
+ *
+ * @section dependencies Dependencies
+ * - C++20 or newer
+ * - Google Test (for unit testing)
+ * - Boost program_options (for the CLI executables mentioned earlier)
+ *
+ */
