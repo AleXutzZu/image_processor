@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Image Processor: Main Page</title>
+<title>Image Processor: Image Processor Library</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,10 +83,72 @@ $(function(){ initResizable(false); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Image Processor Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Image Processor Library </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
+Introduction</h1>
+<p>This project is a modular and extensible image processing library implemented in C++. It supports basic image representations, pixel manipulation, a variety of image processing filters (e.g. gamma correction, alpha-beta transformation, convolution), and drawing operations (e.g. lines, circles, rectangles) on grayscale (PGM) and color (PPM) images.</p>
+<h1><a class="anchor" id="namespace_organization"></a>
+Namespace Organization</h1>
+<ul>
+<li>The main namespace is <a class="el" href="namespaceimgproc.html">imgproc</a>, which contains all core image processing classes, including pixel types, geometry, and base image functionality.</li>
+<li>Drawing utilities and shape rendering functions are grouped under the sub-namespace <a class="el" href="namespaceimgproc_1_1draw.html">imgproc::draw</a>.</li>
+</ul>
+<h1><a class="anchor" id="core_classes"></a>
+Core Classes</h1>
+<ul>
+<li><code><a class="el" href="classimgproc_1_1_gray_pixel.html">imgproc::GrayPixel</a></code>: Represents a grayscale pixel with an intensity value from 0 to 255.</li>
+<li><code><a class="el" href="classimgproc_1_1_r_g_b_pixel.html">imgproc::RGBPixel</a></code>: Represents a color pixel composed of red, green, and blue components, each in the range [0, 255].</li>
+<li><code><a class="el" href="classimgproc_1_1_point.html">imgproc::Point</a></code>: Represents a 2D point with unsigned integer <code>x</code> and <code>y</code> coordinates.</li>
+<li><code><a class="el" href="classimgproc_1_1_rectangle.html">imgproc::Rectangle</a></code>: Represents a rectangle defined by its top-left corner and its width and height.</li>
+<li><code><a class="el" href="classimgproc_1_1_image.html">imgproc::Image</a>&lt;T&gt;</code>: A generic image class templated on pixel type. Supports operations like <code>at(x, y)</code> for pixel access and dimension queries.</li>
+<li><code><a class="el" href="classimgproc_1_1_p_g_m_image.html">imgproc::PGMImage</a></code>: A concrete image class that inherits from <code>Image&lt;GrayPixel&gt;</code> and supports loading/saving PGM images.</li>
+<li><code><a class="el" href="classimgproc_1_1_p_p_m_image.html">imgproc::PPMImage</a></code>: A concrete image class that inherits from <code>Image&lt;RGBPixel&gt;</code> and supports loading/saving PPM images.</li>
+</ul>
+<h1><a class="anchor" id="filters"></a>
+Image Processing</h1>
+<p>The library includes image processing filters such as:</p><ul>
+<li><b>Alpha-Beta Processing</b>: Applies a linear transformation to image intensity: <code>pixel = alpha * pixel + beta</code>.</li>
+<li><b>Gamma Correction</b>: Applies gamma transformation: <code>pixel = pixel ^ gamma</code>.</li>
+<li><b>Convolution Kernels</b>: Generic convolution support including mean blur, Gaussian blur, and Sobel operators.</li>
+</ul>
+<h1><a class="anchor" id="draw"></a>
+Drawing Utilities</h1>
+<p>The <code><a class="el" href="namespaceimgproc_1_1draw.html">imgproc::draw</a></code> namespace provides utilities to draw geometric primitives on images:</p><ul>
+<li><code>drawLine(...)</code>: Draws a line between two points using Bresenham's algorithm.</li>
+<li><code>drawCircle(...)</code>: Draws a circle using the Midpoint Circle algorithm.</li>
+<li><code>drawRectangle(...)</code>: Draws a filled rectangle with input validation.</li>
+</ul>
+<p>All drawing operations include boundary checks and operate directly on the image data.</p>
+<h1><a class="anchor" id="testing"></a>
+Testing</h1>
+<p>The project includes a thorough suite of unit tests using Google Test:</p><ul>
+<li>Validation for image loading, saving, and transformation.</li>
+<li>Convolution kernel tests with known reference images.</li>
+<li>Accuracy checks for drawing primitives and geometric operations.</li>
+</ul>
+<h1><a class="anchor" id="apps"></a>
+Other executables</h1>
+<p>This project also provides some sample programs which may be used to alter images with the use of this library. You can consult the GitHub repository for more details on these programs.</p>
+<h1><a class="anchor" id="usage"></a>
+Example</h1>
+<div class="fragment"><div class="line"><a class="code hl_class" href="classimgproc_1_1_p_g_m_image.html">imgproc::PGMImage</a> pgm(10, 10);</div>
+<div class="line"><a class="code hl_class" href="classimgproc_1_1_rectangle.html">imgproc::Rectangle</a> rect(2, 2, 5, 5);</div>
+<div class="line"><a class="code hl_function" href="namespaceimgproc_1_1draw.html#a1440e3bdf225083706ec7772200f43e2">imgproc::draw::drawRectangle</a>(pgm, rect, <a class="code hl_class" href="classimgproc_1_1_gray_pixel.html">imgproc::GrayPixel</a>(200));</div>
+<div class="ttc" id="aclassimgproc_1_1_gray_pixel_html"><div class="ttname"><a href="classimgproc_1_1_gray_pixel.html">imgproc::GrayPixel</a></div><div class="ttdef"><b>Definition</b> pixel.h:16</div></div>
+<div class="ttc" id="aclassimgproc_1_1_p_g_m_image_html"><div class="ttname"><a href="classimgproc_1_1_p_g_m_image.html">imgproc::PGMImage</a></div><div class="ttdef"><b>Definition</b> PGMImage.h:18</div></div>
+<div class="ttc" id="aclassimgproc_1_1_rectangle_html"><div class="ttname"><a href="classimgproc_1_1_rectangle.html">imgproc::Rectangle</a></div><div class="ttdef"><b>Definition</b> Rectangle.h:14</div></div>
+<div class="ttc" id="anamespaceimgproc_1_1draw_html_a1440e3bdf225083706ec7772200f43e2"><div class="ttname"><a href="namespaceimgproc_1_1draw.html#a1440e3bdf225083706ec7772200f43e2">imgproc::draw::drawRectangle</a></div><div class="ttdeci">void drawRectangle(Image&lt; T &gt; &amp;image, const Point &amp;tl, const Point &amp;br, T color)</div><div class="ttdef"><b>Definition</b> drawing.h:111</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="dependencies"></a>
+Dependencies</h1>
+<ul>
+<li>C++20 or newer</li>
+<li>Google Test (for unit testing)</li>
+<li>Boost program_options (for the CLI executables mentioned earlier) </li>
+</ul>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 <!-- start footer part -->

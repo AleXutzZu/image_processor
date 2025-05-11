@@ -1,11 +1,20 @@
 var searchData=
 [
-  ['save_0',['save',['../classimgproc_1_1_image.html#a19d8fd0116e7092f4da6a230ab44dc2b',1,'imgproc::Image::save()'],['../classimgproc_1_1_p_g_m_image.html#ab22d5e1b2f154daf34af9b7e22e0c41b',1,'imgproc::PGMImage::save()'],['../classimgproc_1_1_p_p_m_image.html#af8bcc680a01134e8f8ee18e3148b125c',1,'imgproc::PPMImage::save()']]],
-  ['scalaradd_1',['scalarAdd',['../classimgproc_1_1_image.html#affbccb4f130029f4ad5a6c3033e47e03',1,'imgproc::Image']]],
-  ['scalarmultiply_2',['scalarMultiply',['../classimgproc_1_1_image.html#ae28357127fa77f861d9d58211452f4b1',1,'imgproc::Image']]],
-  ['scalarpower_3',['scalarPower',['../classimgproc_1_1_image.html#a0488f7289097f57ddecf691ca358a08b',1,'imgproc::Image']]],
-  ['scalingfunction_4',['scalingFunction',['../classimgproc_1_1_kernel.html#a84790036681026d88651fc402f6397a3',1,'imgproc::Kernel']]],
-  ['sobelkernel_5',['SobelKernel',['../classimgproc_1_1_sobel_kernel.html',1,'imgproc::SobelKernel'],['../classimgproc_1_1_sobel_kernel.html#accb7deb7bb7b55a102435ae04bf222a6',1,'imgproc::SobelKernel::SobelKernel()'],['../classimgproc_1_1_sobel_kernel.html#a75720623dfa97db02dc9ceafe662882a',1,'imgproc::SobelKernel::SobelKernel(const SobelKernel &amp;other)=delete']]],
-  ['sobelkernel_2ecpp_6',['SobelKernel.cpp',['../_sobel_kernel_8cpp.html',1,'']]],
-  ['sobelkernel_2eh_7',['SobelKernel.h',['../_sobel_kernel_8h.html',1,'']]]
+  ['pgmimage_0',['PGMImage',['../classimgproc_1_1_p_g_m_image.html',1,'imgproc::PGMImage'],['../classimgproc_1_1_p_g_m_image.html#a7cd8e1abe111211cd4f4093cd8842459',1,'imgproc::PGMImage::PGMImage()'],['../classimgproc_1_1_p_g_m_image.html#ac23ef66ff7a84d86f08f9c4e0265e8fc',1,'imgproc::PGMImage::PGMImage(unsigned int width, unsigned int height)'],['../classimgproc_1_1_p_g_m_image.html#a8803331ab73df0e93ab82fa3fd01ed71',1,'imgproc::PGMImage::PGMImage(const PGMImage &amp;other)']]],
+  ['pgmimage_2ecpp_1',['PGMImage.cpp',['../_p_g_m_image_8cpp.html',1,'']]],
+  ['pgmimage_2eh_2',['PGMImage.h',['../_p_g_m_image_8h.html',1,'']]],
+  ['pgmimageprocessor_3',['PGMImageProcessor',['../classimgproc_1_1_p_g_m_image_processor.html',1,'imgproc']]],
+  ['pixel_2ecpp_4',['pixel.cpp',['../pixel_8cpp.html',1,'']]],
+  ['pixel_2eh_5',['pixel.h',['../pixel_8h.html',1,'']]],
+  ['point_6',['Point',['../classimgproc_1_1_point.html',1,'imgproc::Point'],['../classimgproc_1_1_point.html#a59a5825773b18d729baa472a9fa9c80e',1,'imgproc::Point::Point()'],['../classimgproc_1_1_point.html#a07d78bd8a2772f5c2fc8946197a08655',1,'imgproc::Point::Point(unsigned int x, unsigned int y)']]],
+  ['point_2ecpp_7',['Point.cpp',['../_point_8cpp.html',1,'']]],
+  ['point_2eh_8',['Point.h',['../_point_8h.html',1,'']]],
+  ['power_9',['power',['../classimgproc_1_1_gray_pixel.html#a57c87851d38b176481d2443912c1235a',1,'imgproc::GrayPixel::power'],['../classimgproc_1_1_r_g_b_pixel.html#a48110877de8c9a5c6fc82c9fda0306ac',1,'imgproc::RGBPixel::power'],['../namespaceimgproc.html#ae9c5d219ff7c94823d2ddb1c4607bbcb',1,'imgproc::power(float scalar, const GrayPixel &amp;vector)'],['../namespaceimgproc.html#a0d12f339f1a7f35d7df7ae7152ebf6f6',1,'imgproc::power(float scalar, const RGBPixel &amp;vector)']]],
+  ['ppmimage_10',['PPMImage',['../classimgproc_1_1_p_p_m_image.html',1,'imgproc::PPMImage'],['../classimgproc_1_1_p_p_m_image.html#a5db8159d391d243906cd1881aa032eed',1,'imgproc::PPMImage::PPMImage()'],['../classimgproc_1_1_p_p_m_image.html#a398fb89fe26adaf1ae25892b04e7c2c6',1,'imgproc::PPMImage::PPMImage(unsigned int width, unsigned int height)'],['../classimgproc_1_1_p_p_m_image.html#a8b59ec56d67792f5d24f63d16e242d91',1,'imgproc::PPMImage::PPMImage(const PPMImage &amp;other)']]],
+  ['ppmimage_2ecpp_11',['PPMImage.cpp',['../_p_p_m_image_8cpp.html',1,'']]],
+  ['ppmimage_2eh_12',['PPMImage.h',['../_p_p_m_image_8h.html',1,'']]],
+  ['ppmimageprocessor_13',['PPMImageProcessor',['../classimgproc_1_1_p_p_m_image_processor.html',1,'imgproc']]],
+  ['processimage_14',['processImage',['../classimgproc_1_1_alpha_beta_processing.html#a4438816d8f3c0aff850215073c5443fd',1,'imgproc::AlphaBetaProcessing::processImage(const PGMImage &amp;src, PGMImage &amp;dst) override'],['../classimgproc_1_1_alpha_beta_processing.html#a58067baa4513c4fcb6ce5867fa9cd6a7',1,'imgproc::AlphaBetaProcessing::processImage(const PPMImage &amp;src, PPMImage &amp;dst) override'],['../classimgproc_1_1_convolution_processing.html#a07b26eaf937a141100e9fff61b2337db',1,'imgproc::ConvolutionProcessing::processImage(const PPMImage &amp;src, PPMImage &amp;dst) override'],['../classimgproc_1_1_convolution_processing.html#a40f0bf748d4334213b478861c1ad09a2',1,'imgproc::ConvolutionProcessing::processImage(const PGMImage &amp;src, PGMImage &amp;dst) override'],['../classimgproc_1_1_gamma_processing.html#ac5f4ec28b8f32bea4e2cefa97ec1a17f',1,'imgproc::GammaProcessing::processImage(const PPMImage &amp;src, PPMImage &amp;dst) override'],['../classimgproc_1_1_gamma_processing.html#a374d2688925da23b9e9361433552174a',1,'imgproc::GammaProcessing::processImage(const PGMImage &amp;src, PGMImage &amp;dst) override'],['../classimgproc_1_1_image_processing.html#a11cc73235923982fa5912ce574508b96',1,'imgproc::ImageProcessing::processImage()']]],
+  ['processing_15',['Image Processing',['../index.html#filters',1,'']]],
+  ['processor_20library_16',['Image Processor Library',['../index.html',1,'']]]
 ];

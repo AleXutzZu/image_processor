@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['meanblurkernel_0',['MeanBlurKernel',['../classimgproc_1_1_mean_blur_kernel.html',1,'imgproc::MeanBlurKernel'],['../classimgproc_1_1_mean_blur_kernel.html#a8e2103405b636fcc26a52d37ecf685e6',1,'imgproc::MeanBlurKernel::MeanBlurKernel()'],['../classimgproc_1_1_mean_blur_kernel.html#aafa3e32aa63e337da37b6ccf6e428b8c',1,'imgproc::MeanBlurKernel::MeanBlurKernel(const MeanBlurKernel &amp;other)=delete']]],
-  ['meanblurkernel_2ecpp_1',['MeanBlurKernel.cpp',['../_mean_blur_kernel_8cpp.html',1,'']]],
-  ['meanblurkernel_2eh_2',['MeanBlurKernel.h',['../_mean_blur_kernel_8h.html',1,'']]]
+  ['library_0',['Image Processor Library',['../index.html',1,'']]],
+  ['load_1',['load',['../classimgproc_1_1_image.html#a0c7b84805981df756141069f372169b8',1,'imgproc::Image::load()'],['../classimgproc_1_1_p_g_m_image.html#a55f9532ed5b6418364c6e2daf85151e7',1,'imgproc::PGMImage::load()'],['../classimgproc_1_1_p_p_m_image.html#ad95070a83c1eba1978c6b1fe59f7ded8',1,'imgproc::PPMImage::load()']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['load_0',['load',['../classimgproc_1_1_image.html#a0c7b84805981df756141069f372169b8',1,'imgproc::Image::load()'],['../classimgproc_1_1_p_g_m_image.html#a55f9532ed5b6418364c6e2daf85151e7',1,'imgproc::PGMImage::load()'],['../classimgproc_1_1_p_p_m_image.html#ad95070a83c1eba1978c6b1fe59f7ded8',1,'imgproc::PPMImage::load()']]]
+  ['kernel_0',['Kernel',['../classimgproc_1_1_kernel.html',1,'imgproc::Kernel'],['../classimgproc_1_1_kernel.html#a04c587ea434dabfbb166761f26a707ae',1,'imgproc::Kernel::Kernel(unsigned int width, unsigned int height, const std::function&lt; GrayPixel(int)&gt; &amp;function)'],['../classimgproc_1_1_kernel.html#a11b60cd27ccbabd42ca2d905a21c5fc3',1,'imgproc::Kernel::Kernel(const Kernel &amp;other)=delete']]],
+  ['kernel_2ecpp_1',['Kernel.cpp',['../_kernel_8cpp.html',1,'']]],
+  ['kernel_2eh_2',['Kernel.h',['../_kernel_8h.html',1,'']]]
 ];
