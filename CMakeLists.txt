@@ -15,6 +15,10 @@ if (Boost_FOUND)
     add_executable(ppm_editor ppm_editor.cpp)
     target_include_directories(ppm_editor PUBLIC ${Boost_INCLUDE_DIRS})
     target_link_libraries(ppm_editor PUBLIC ${Boost_LIBRARIES} image_processor_lib)
+
+    add_executable(image_drawing image_drawing.cpp)
+    target_include_directories(image_drawing PUBLIC ${Boost_INCLUDE_DIRS})
+    target_link_libraries(image_drawing PUBLIC ${Boost_LIBRARIES} image_processor_lib)
 endif ()
 
 add_subdirectory(lib)
