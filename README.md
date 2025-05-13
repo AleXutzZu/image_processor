@@ -52,7 +52,7 @@ Draw a line on an image
 #include "geometry/drawing.h"
 
 imgproc::PGMImage canvas(100, 100);
-imgproc::draw::drawLine(canvas, Point(10, 10), Point(90, 90), GrayPixel(255));
+imgproc::draw::drawLine(canvas, imgproc::Point(10, 10), imgproc::Point(90, 90), imgproc::GrayPixel(255));
 canvas.save("line.pgm");
 ```
 
